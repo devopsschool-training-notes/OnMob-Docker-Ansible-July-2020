@@ -1,0 +1,516 @@
+Rajesh Kumar
+================
+5 Days 
+
+Devops - Ansible - Docker - Artifactory
+=====================
+1/2 	2 Days	  2 Days  - 1/2
+========================================
+Demo + Lab = AWS (7 PM)
+
+Training Timing - 11.30 - 7PM
+==============================
+Lunch break - 1:30  - 2:30 - 45 mins.
+------------------------------
+BREAK - 15 mins - 4:30 PM
+===============================================
++91 8105843520
+===============================================
+Why we are here?
+=========================
+APP
+	Software Developement
+	Software Running
+	====================
+	Quality Release
+	Cost Reduction
+	Immediate release
+	====================
+				USING				LIVING
+			-------INTERNET-----------------------------------
+Consumptions	DESKTOP			BROWSER			Devices
+=========================================================================
+Packaging	Tightly			loosly			loosly
+========================================================================
+Platform	PCs(PM)			Vms			Container
+Feature		Lots of			Few			ONE (DEV + QA + OPS)
+Codebase	1 GB			100 MB			5 MB
+Release		1 YEAR			2 Week			5 mins?????? END GOAL
+Example		MSOFFICE		Wordpress		Google	
+Soft Dev Arch	Monolitic		SOA			Microservices
+Soft Dev Model	Waterfall		Agile			DevOps	
+==========================EVOLUTION=====================================>>>>
+What is DevOps?	
+	Devops would help to migrate from OLD to NEW to get following objective.
+	====================
+	Quality Release
+	Cost Reduction
+	Immediate release
+	====================
+
+How DevOps?
+===============
+	Hire DevOps??? - Wrong
+	Use DevOps Tools - Wrong
+	Dev + OS== DevOps - Wrong
+
+	DevOps Would help to change MINDSETS/CULTURE of 
+				- Org
+				- Employee
+			Automation
+
+	To get 
+	====================
+	Quality Release
+	Cost Reduction
+	Immediate release
+	====================
+
+	What is DevOps?
+	DevOps is a way in which you have 
+				ONE GOAL(ONMOBX)
+	and 			ONE TEAM
+		&&&
+			How effic* Communicate within a ONE
+			How effic* integrate with each other
+			How effic* communicate with each other?
+			How effic* understanding each other?
+			How effic* you build relationship with each other			
+					For what?
+			====================
+			Quality Release
+			Cost Reduction
+			Immediate release
+			====================
+==========================================================================
+Product - ProdX
+============================
+10 DevOpsEngineer - Working from HOME - 10 FEATURE | Dev - QA - Ops |
+============================
+Problem 
+	Planning		- JIRA
+	Knowledge Sharing	- TEAM - Confluence
+	Code Intergration	- Github
+	Code Reviews		- SonarQube
+	Build mgmt		- Maven, Gradle
+	Unit Testing		- Junit
+	Packaging		- Jar
+	Package mgmt		- Artifactory
+	Deployment to QA	- Ansible
+			- AT	- Selenium
+			- CC	- Jacoco
+	Deployment to PredPord	- Ansible
+			- Complete Testing
+				- TEST SUIT
+	Deployment to Prod	- Ansible
+			- Moniotoring
+				Log	- ELk Stake
+				Infra	- Promethus
+				Security - SonarQube - NewRelic - ELK
+				Perf	- NewRelic 
+
+CODE 	-> ANALYSIS -> Build -> UT -> Package -> Archive -> Dep2QA -> AT -> CC
+=====	=======================================================================
+HUMAN				GUI - JENKINS
+				CMD - terraform
+
+We need a PERSON who can do what ONLY.
+				Code for products		- JAVA
+				Code for testing a products	- SELENIUM
+				Code for infra			- jenkinsfile or terraform
+				============================
+				ONE PERSON
+		
+			ALL TOOLS - EASY TO LEARN - TEST - DEBUG - SHARE 
+
+===============================================================
+VIDEO 
+	https://www.devopsschool.com/lms/course/view.php?id=101 (RECOMM)
+	https://www.devopsschool.com/videos/
+===================================================================================
+===================================================================================
+What is Docker?
+--------------------------------------------
+	PLATFORM such as VMWARE, VIRTUALBOX
+			 ------------------
+			       Vms
+	BUT
+		for Containers
+	Its containers mgmt tool.
+	Written in Golang
+	by Solomon hykes
+	Release
+		Community - YES Part of the training
+		Enterprise - You dont need it.
+			Container ORCH - Kubernetes
+	Version - 19.X
+	
+
+What is Container?
+---------------------------------------------
+	Container is USER(ISOLATED) SPACE 
+				Has their onw MNT (ROOTFs + USERFS + APP FS)
+						(ROOTFs + USERFS + APP FS) == Docker image
+				HAS their own NET
+				Has their own PMAP
+					With a help Docker. Mged by Docker.
+				Docker Takes this capa* from KERNAL NS
+			
+				For CPU  - Cgroups
+				For Access - CAPABILITY
+
+
+How you can run ANY APP?
+AKA
+What are the components in SYSTEM which require to RUN ANY App?
+What are the components in SYSTEM which require to access ANY App?
+====================================================================
+SYSTEM -> OS -> 
+		KERNAL
+			(Namespace)
+			MNT	- initliaze one MNT
+					MNT = BOOTFS + ROOTFs + USERFS + APP FS
+						 BOOTFS = PID + NETWORK - can not see	=== 1
+						 ROOTFs = OS flavour	 - Can see	=== 1		
+						 USERFS == Discussed.			=== MULTIPLE
+						 APP FS - 				=== Cond*
+		
+			PID	- initliaze ONE PMAP -
+			NETWORK - initliaze ONE NETWORK
+			USR 	- initliate MULTIPLE USERS Space
+		CGROUPS
+			ALLOCATING CPU + RAM to PROCESS ID
+		Security
+			Capability
+		Storage
+		Networking
+
+		Container is lightweight app run time independent env manged by docker.
+		
+
+APP -> APPFS --> ROOTFS -> ONE USERSPACE --> ROOT FS --> BOOTS ==== OS
+			   ---------
+			     USERFS
+			   ISOLATION
+
+What are the components in SYSTEM which require to RUN ANY App?
+	- OS --> KERANL -> NS
+				ONE MNT
+				ONE PMAP
+				ONE USER
+			   CGROUPS
+			   Capability
+				
+What are the components in SYSTEM which require to access ANY App?	
+	- OS --> KERANL -> NS
+				ONE NET	
+
+What are the components in SYSTEM which require to RUN ANY App?
+	- OS --> KERNAL -> NS
+				ONE MNT	 - 1 
+				ONE PMAP - 1
+				ONE USER - 1
+				ONE NET	 - 1
+			   CGROUPS
+			   Capability
+What is PC?
+===================
+	PERSONAL 
+		MINE for Human
+	COMPUTING
+		OS
+		RAM
+		CPU
+
+Where are you RUNNING App now a days????
+========================================
+	Datacenters
+		BUT Architecutre based on PC.
+
+
+OS for PC - NOT FOR RUNNING DATA CENTER
+ - ONE NET
+ - ONE PMAP 
+ - ONE MNT
+ - MULTILE USERS
+
+What is my PRB??
+=======================
+PYSHICAL MACHINE - 20%-30%
+
+1000 PEOPLE / Day
+=================
+2 AM - 10% of USAGE
+2 PM - 90% of USAGE
+==================
+AVG  - 30% - WASTE in ONE MACHINE = 70% X 1000 = WHAT IS THE WASTAGE??? in DC?
+=================
+1000 Vs 1 = YUTUBE
+-------------------
+
+What you need?
+Org wants to reduce Software Running cost?
+
+
+PHYSCIAL SERVER ===> VIRTUAL SERVER ===> Container(second)
+====================================================================
+====================================================================
+====================================================================
+What is the Architecture of docker Or how Docker works?
+
+Human --> Docker Client ---REST--> Docker Deamon --> ContainerD --> SystemD
+         --------------------------------------------
+			Docker Engine			C runtime  ---> Kernal 
+
+What are the componennts of Docker?
+- Docker Engine
+	Docker client --> Docker Deamon
+- Docker Image
+	ROOTFs + USERFS + APP FS == ONE PACKAGE thats called Image.
+	i.e Your APP	
+	
+- Docker Registry
+	A Place from you can download "Docker Image". 
+	Repo(s)
+		dockerimage
+	PUBLIC
+		hub.docker.com
+	PVT
+		artifactory
+- Docker Container
+	A moment you run IMAGE.
+		ONE Copy of Flatten image get 
+					MNT to USER
+						With 
+							NET 
+							PMAP
+
+Other tools - 
+https://www.devopsschool.com/blog/list-of-top-container-runtime-interface-projects/
+- podman
+
+
+Workflow of docker?
+============================================
+docker run jenkins(imagename)
+human -> client -> dockerD --> LocalRepo-> PublicRepo to Localrepo -> Container by ContainerD
+
+Container lifecycle?
+=========================
+---------------------------------------------------
+Create -> Start -> STOP -> Start -> Restart -> Pause -> Unpause -> Kill -> Remove
+==================================================================================
+
+
+
+
+How to install Docker?
+============================
+https://www.devopsschool.com/tutorial/docker/install-config/docker-install-commuityedition-centos-rhel.html
+13.234.66.160
+
+   1  sudo yum install -y yum-utils device-mapper-persistent-data lvm2
+    2  sudo yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+    3  sudo yum install –y https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+    4  sudo yum-config-manager --enable rhui-REGION-rhel-server-extras
+    5  udo yum install -y docker-ce
+    6  sudo yum install -y docker-ce
+    7   sudo systemctl enable docker
+    8  sudo systemctl start docker
+    9  clear
+   10  docker info
+   11  clear
+   12  ls
+   13  docker -v
+   14  which docker
+   15  ps -eaf | grep docker
+   16  history
+
+
+For Docker commands.
+--------------------------------
+DOCKER NEED ROOT or a USER NEDD TO BE PART Of group called "docker"
+======================================
+
+Lifecycle of VMs.
+---------------------------------------------------
+Create -> Start -> STOP -> Start -> Restart -> Pause -> Unpause -> Kill -> Remove
+==================================================================================
+
+
+What app you want to run in the container?
+==================================================
+jenkins
+	webbased	8080
+	java
+	agent		50000	
+jenkins -> java -> os(rootfs) --> boot(fs)
+======================================================
+
+Container lifecycle?
+=========================
+---------------------------------------------------
+Create -> Start -> STOP -> Start -> Restart -> Pause -> Unpause -> Kill -> Remove
+==================================================================================
+ 18  docker images
+   19  clear
+   20  docker images
+   21  docker ps
+   22  docker ps -a
+   23  docker pull jenkins
+   24  clear
+   25  docker images
+   26  clear
+   27  clear
+   28  clear
+   29  docker create jenkins
+   30  dockr ps
+   31  docker ps
+   32  docker ps =a
+   33  docker ps -a
+   34  docker start 7e5436b14006
+   35  clear
+   36  docker ps
+   37  docker stop 7e5436b14006
+   38  docker ps
+   39  docker ps -a
+   40  docker start 7e5436b14006
+   41  docker ps -a
+   42  clear
+   43  docker ps -a
+   44  docker restart 7e5436b14006
+   45  docker ps -a
+   46  docker pause  7e5436b14006
+   47  docker ps -a
+   48  clear
+   49  docker unpause  7e5436b14006
+   50  docker ps -a
+   51  docker kill 7e5436b14006
+   52  docker ps -a
+   53  docker rm  7e5436b14006
+   54  clear
+   55  docker ps -a
+
+
+Assignment 1
+=====================
+Pause Vs Unpause
+Stop vs Kill
+
+Assignment 2
+====================
+Tomcat
+nginx
+mysql
+Sonarqube
+jenkins
+git
+ps
+springboot
+redis
+solr
+ftp
+gradle
+zabbix
+es
+
+
+Lets PROOOV it.
+=======================
+What is Container?
+---------------------------------------------
+	Container is USER(ISOLATED) SPACE 
+				Has their onw MNT (ROOTFs + USERFS + APP FS)
+						(ROOTFs + USERFS + APP FS) == Docker image
+				HAS their own NET
+				Has their own PMAP
+					With a help Docker. Mged by Docker.
+				Docker Takes this capa* from KERNAL NS
+			
+				For CPU  - Cgroups
+				For Access - CAPABILITY
+
+
+
+ 6  ps
+    7  ps -eaf | grep 8660
+    8  ps -eaf | grep 8658
+    9  ps -eaf | grep 8636
+   10  ps -eaf | grep 8635
+   11  ps -eaf | grep 8632
+   12  ps -eaf | grep 1241
+   13  cpeae
+   14  clear
+   15  ps -eaf
+   16  clear
+   17  clear
+   18  docker create jenkins
+   19  ps -eaf | grep docker
+   20  docker start 91b32bbf38468cfc7f3c53bc63bc2634a85e5cccbc81c017eba02194b920aa5c
+   21  ps -eaf | grep docker
+   22  docker stop 91b32bbf38468cfc7f3c53bc63bc2634a85e5cccbc81c017eba02194b920aa5c
+   23  ps -eaf | grep docker
+   24  clear
+   25  docker ps -a
+   26  docker start 91b32bbf3846
+   27  clear
+   28  docker exec -it 91b32bbf3846 /bin/bash
+   29  clear
+   30  docker ps
+   31  docker inspect 91b32bbf3846
+   32  curl http://172.17.0.2:8080
+   33  clear
+   34  ls
+   35  docker  create jenkins
+   36  docker ps -a
+   37  docker start 2b6997e55a40
+   38  ckear
+   39  clear
+   40  docker ps
+   41  docker inspect 2b6997e55a40
+   42  clear
+   43  docker ps
+   44  docker exec 2b6997e55a40 ps -eaf
+   45  clear
+   46  ls
+   47  docker ps
+   48  docker exec 2b6997e55a40 df -kh
+   49  docker exec 91b32bbf3846 df -kh
+   50  clear
+   51  docker exec 2b6997e55a40 ls /
+   52  history
+
+
+
+
+Agasthiyappan Arugadevan	13.127.179.40
+Prerana Murthy	13.233.144.5
+Shriram Patil	52.66.29.30
+Vanshika Sharma	3.7.45.220
+Karthik Aluguri	13.232.215.240
+Seema Singh	3.7.71.56
+Robin Kumar	13.235.76.7
+Aradhana Abhijeet Deshpande	35.154.228.79
+Saurav Bhasi	52.66.172.208
+Koyel Mahata	15.207.21.141
+Amit Kumar Singh	13.235.48.66
+Jitendra Kumar Jha	35.154.174.163
+SHIVAM PANDEY	13.232.82.86
+gopinath.perumal	13.126.108.199
+Shubham Rawani	13.233.201.228
+Sushma Moolya	13.233.115.27
+A Manohar	13.233.144.185
+Saurabh Pawar	13.233.104.109
+Pooja bhatia das	13.127.120.6
+	13.233.103.219
+
+username - centos
+Key - https://www.devopsschool.com/notes/docker/2019/
+
+	rajesh-mumbai.pem	2019-08-28 13:30	1.6K	SSH 
+ 	rajesh-mumbai.ppk	2019-08-28 13:30	1.4K	 PUTTY
+
+
+
+
+
