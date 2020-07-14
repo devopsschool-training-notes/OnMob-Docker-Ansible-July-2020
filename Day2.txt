@@ -136,14 +136,150 @@ https://www.devopsschool.com/tutorial/docker/commands/
 
 
 
+ 73  docker ps
+   74  docker logs f697d28c5d62
+   75  docker exec f697d28c5d62 ls
+   76  docker logs f697d28c5d62
+   77  clear
+   78  docker logs f697d28c5d62
+   79  clear
+   80  docker ps
+   81  docker logs 6e1bd212b5a9
+   82  clear
+   83  ls
+   84  docker ps
+   85  docker logs 29d9364f82e5
+   86  clear
+   87  clear
+   88  docker stats
+   89  docker stats f697d28c5d62
+   90  docker ps
+   91  ps -eaf | grep docker
+   92  clear
+   93  docker ps
+   94  docker top f697d28c5d62
+   95  clear
+   96  docker events
+
+
+===========================================
+
+What is Image?
+================================
+image is collection of file system.
+
+rootfs + userfs + appfs + appfs + appfs + appfs	== IMAGE
+----------------------------------------------
+ubuntu	ubuntu   java	  tomcat  appv1	appv1.1 == IMAGE
+centos	centos	 java	  tomcat  appv1	appv1.1  == IMAGE
+
+====================================================
+Union mOunts
+--------------
+
+rootfs + appfs + appfs + appfs + appfs
+======================================
+basefs
+		IMAGE
+			Represent Last layer commited.
+
+
+All layers of the image merged and create Writeable LAYER.
+This writable layer is YOUR Container.
+		Writeable LAYER
+				Diff   === Would have only those files DELTA.
+				Merged ======> You can see in the container.
 
 
 
-
-
-
-
-
-
+ 3  ls
+    4  docker ps -a
+    5  docker stop $(docker ps -a -q)
+    6  docker rm $(docker ps -a -q)
+    7  docker images
+    8  docker rmi $(docker images -q)
+    9  clear
+   10  docker ps -a
+   11  docker images
+   12  cd /var/lib/docker/
+   13  ls
+   14  docker info
+   15  clear
+   16  ls
+   17  cd overlay2
+   18  s
+   19  clear
+   20  clear
+   21  ls
+   22  du -sh .
+   23  docker pull ubuntu
+   24  ls
+   25  docker history ubuntu
+   26  clear
+   27  du -sh --max-depth=1
+   28  du -s --max-depth=1
+   29  du -h --max-depth=1
+   30  cd ./d830c20d4baf7465e99a83214765c3504abb24b16fa5a03a32111021cef33f4c
+   31  ls
+   32  cd diff/
+   33  clear
+   34  ls
+   35  cd ../..
+   36  ls
+   37  cd ebafc537f306230a4877692c00b638033694fbef0980466d3c40356b9f33ff8f
+   38  ls
+   39  cd diff/
+   40  clar
+   41  clear
+   42  ls
+   43  cd ..
+   44  ls
+   45  cd ..
+   46  ls
+   47  docker history
+   48  docker history ubuntu
+   49  docker inspect ubuntu
+   50  clear
+   51  ls
+   52  clear
+   53  ls
+   54  docker run -itd ubuntu
+   55  ls
+   56  du -sh a81aa3a8dec7c0ecad815abe3572f6201bc0b9b739e7407d7efffb90d181a13b-init
+   57  du -sh a81aa3a8dec7c0ecad815abe3572f6201bc0b9b739e7407d7efffb90d181a13b
+   58  docker ps
+   59  docker inspect f0b6cddf2b43
+   60  clear
+   61  ls
+   62  cd a81aa3a8dec7c0ecad815abe3572f6201bc0b9b739e7407d7efffb90d181a13b
+   63  ls
+   64  df -kh
+   65  docker
+   66  clear
+   67  docker ps
+   68  docker stop f0b6cddf2b43
+   69  df -kh
+   70  ls
+   71  docker start f0b6cddf2b43
+   72  ls
+   73  df -kh
+   74  cler
+   75  clear
+   76  s
+   77  ls
+   78  cd diff/
+   79  ls
+   80  docker ps
+   81  docker exec f0b6cddf2b43 touch /opt/rajesh1.txt
+   82  cd ..
+   83  ls
+   84  cd ..
+   85  lear
+   86  clear
+   87  pwd
+   88  find . -name rajesh1.txt
+   89  docker exec f0b6cddf2b43 touch /opt/rajesh2.txt
+   90  find . -name rajesh*
+   91  history
 
 
