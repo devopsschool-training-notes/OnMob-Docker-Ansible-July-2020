@@ -1,0 +1,79 @@
+
+Yest - Run a container.
+Today - 
+	We would consume
+	We would troubleshoot
+	We would do some ops.
+======================================
+Tomcat in Laptop ---
+Tomcat in VMs ------
+	Access Tomcat	-> http://5.5.6.7:8080
+   22  clear
+   23  clear
+   24  docker run -d jenkins
+   25  docker ps -a
+   26  docker run -d -p 8080:8080 jenkins
+   27  docker ps
+   28  docker run -d -p 8080:8080 jenkins
+   29  clear
+
+	
+	
+
+run
+====================================
+pull --> create --> start --> become
+
+run jenkins --> Become /bin/tini
+run mysql ---> Become docker-entrypoint.sh
+
+
+run -d
+====================================
+pull --> create --> start --> DO NOT become
+
+
+Access Server where tomcat is running
+		- SHELL.
+================================================================================================
+PHYSICAL SERVER IS RUNNING	VIRTUAL SERVER IS RUNNING	Container is RUNNING
+ONLY 				ONLY				Only 
+IF PID1 is running		IF PID1 is running		IF PID1 is running
+
+PID1=SYSTEMD			PID1=SYSTEMD			PID1=ANYTHING	
+	
+Thus							
+if "ANYTHING" is running - your container is running.
+
+
+How to get inside a container?
+- exec
+	it would execute an executable INSIDE a container.
+	BUT - with -it &&& shell - you can interact with a container
+
+docker run -itd ubuntu
+
+docker run ubuntu
+docker run -d ubuntu
+docker run -it ubuntu
+docker run -itd ubuntu
+
+- attach 
+	it would attached to exec which is with PID1
+
+
+How to come to container Safetly if SHELL IS there...
+=================================================
+Contrl + P+ Q
+
+
+Lets play 
+- jenkins	rootfs_userfs_appfs
+- ubuntu	rootfs
+
+
+
+
+
+
+
