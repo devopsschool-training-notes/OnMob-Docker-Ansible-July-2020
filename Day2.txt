@@ -369,6 +369,77 @@ Using public repo
 
 Using pvt repo
 	- artifactory
+===================================================
+
+
+Using dockerfile
+=======================
+
+
+FROM ubuntu
+MAINTAINER Rajesh Kumar DevOps@Rajeshkumar.xyz
+RUN apt-get update
+RUN apt-get install git -y
+
+
+docker build -t up-ub-git .
+
+Rules of Dockerfile
+===========================
+layer - 
+	data  - overlay2
+	meta  - containers
+
+Each line of Dockerfile would create one layer.
+eACH LAYER WOULD BE USING base AS A layer0
+
+
+FROM ubuntu
+MAINTAINER Rajesh Kumar DevOps@Rajeshkumar.xyz
+RUN touch /opt/rajesh1.txt
+RUN touch /opt/rajesh2.txt
+RUN touch /opt/rajesh3.txt
+
+======================================================
+Jenkins container 
+	Which env?	
+	Which port is exposed?
+	which user a container is running with?
+	dO WE HAVE ANY volume attached to container?
+
+
+jenkins
+==================
+	openjdk:8-jdk
+		buildpack-deps:buster-scm
+			buildpack-deps:buster-curl
+				debian:buster
+					scratch
+
+https://github.com/jenkinsci/docker/blob/587b2856cd225bb152c4abeeaaa24934c75aa460/Dockerfile
+
+
+Assignment - Write a dokerfile.
+====================
+Create an image 
+	Base - centos7
+	Install nginx
+	SET ENV = myname=yoruname
+	volme - /opt/vol
+	run as user - deploy
+
+How can i make PID1?
+	CMD
+	ENTRYPOINT
+
+
+
+
+
+
+
+
+
 
 
 
