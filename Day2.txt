@@ -324,8 +324,51 @@ install java
 install git
 copy some jar file to /opt/myapp
 -----create a image.
+=========================================================
+How can i share a Images?
+==================================
+Using Tar ball
+	- tar
+  142  docker images
+  143  docker save -o up-git-ap-up.tar up-git-ap-up
+  144  ls
+  145  docker ps
+  146  docker stop a227b040c1d5 73499b939778 f0b6cddf2b43
+  147  docker rma227b040c1d5 73499b939778 f0b6cddf2b43
+  148  docker rm a227b040c1d5 73499b939778 f0b6cddf2b43
+  149  clear
+  150  docker images
+  151  docker rmi up-git-ap-up
+  152  docker images
+  153  ls
+  154  docker load -i up-git-ap-up.tar
+  155  docker imates
+  156  docker images
+
+Using public repo
+	- hub.docker.com
+1. register a account at hub.docker.com
+2. Login to hub.docker.com
+3. create a public hub.docker.com
+4. Match a repo name Local and Remote....[required]
+5. docker login
+6. docker push imagename
+
+ 157  history
+  158  clear
+  159  docker images
+  160  docker tag up-git-ap-up devopsschools/onmobxyz
+  161  docker images
+  162  docker login
+  163  clear
+  164  docker push devopsschools/onmobxyz
+  165  docker tag up-git-ap-up devopsschools/onmobxyz:v1
+  166  docker push devopsschools/onmobxyz:v1
+  167  history
 
 
+Using pvt repo
+	- artifactory
 
 
 
