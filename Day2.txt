@@ -70,6 +70,76 @@ Contrl + P+ Q
 Lets play 
 - jenkins	rootfs_userfs_appfs
 - ubuntu	rootfs
+==========================================================================
+==========================================================================
+https://www.devopsschool.com/tutorial/docker/commands/
+
+
+  22  docker ps
+   23  vi devopsschool.txt
+   24  docker cp devopsschool.txt f20a6013e9a8:/opt
+   25  docker exec f20a6013e9a8 ls /opt
+   26  clear
+   27  ls
+   28  rm devopsschool.txt
+   29  rm devopsschool.txt
+   30  rm devopsschool.txt
+   31  docker ps
+   32  clear
+   33  ls
+   34  docker cp f20a6013e9a8:/opt/devopsschool.txt .
+   35  ls
+   36  more devopsschool.txt
+
+
+diff
+---------
+added
+changed
+deleted
+	since you created a container.
+
+  36  more devopsschool.txt
+   37  history
+   38  clear
+   39  docker ps -a
+   40  clear
+   41  docker ps
+   42  docker attach f20a6013e9a8
+   43  docker ps
+   44  docker diff f20a6013e9a8
+   45  history
+
+
+ 41  docker ps
+   42  docker attach f20a6013e9a8
+   43  docker ps
+   44  docker diff f20a6013e9a8
+   45  history
+   46  clear
+   47  docker ps
+   48  docker port f20a6013e9a8
+   49  docker run -d -p 8080:8080 jenkins
+   50  docker ps
+   51  docker port 6e1bd212b5a9
+   52  history
+
+
+
+Assignemnt
+===============
+update	Update configuration of one or more containers
+wait	Block until one or more containers stop, then print their exit codes
+
+https://www.devopsschool.com/tutorial/docker/commands/
+
+
+
+
+
+
+
+
 
 
 
