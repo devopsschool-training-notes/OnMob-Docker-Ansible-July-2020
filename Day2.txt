@@ -281,5 +281,53 @@ This writable layer is YOUR Container.
    89  docker exec f0b6cddf2b43 touch /opt/rajesh2.txt
    90  find . -name rajesh*
    91  history
+================================================================
+
+How to create image?
+============================
+	i.e commit a top layer[container]
+	or commit all layer from scratch
+==============================================
+Manual - using existing container
+
+Automation - Using Dockerfile.
+
+
+============================================
+ubuntu -> java -> apache - git
+	 -----------------------
+		ONE LAYER
+centos
+
+
+ 118  docker commit -m"up-git-ap-up" -a "rajesh" 73499b939778 up-git-ap-up
+  119  docker ps
+  120  clear
+  121  dcoker images
+  122  docker images
+  123  docker history ubuntu
+  124  docker history up-git-ap-up
+  125  docker run -itd up-git-ap-up
+  126  docker ps
+  127  clear
+  128  docker exec a227b040c1d5 git
+  129  clear
+  130  docker exec a227b040c1d5 java
+  131  clear
+  132  histry
+
+
+Assignment - 
+Download centos
+install tomcat
+install java
+install git
+copy some jar file to /opt/myapp
+-----create a image.
+
+
+
+
+
 
 
