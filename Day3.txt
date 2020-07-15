@@ -412,12 +412,37 @@ mvn archetype:generate -DgroupId=com.devopsschool.software -DartifactId=mail -Da
 
 
 Docker - Container
+========================================
+admin
+admin123
 
+Example of docker push or pull and login commands:
+docker pull / push 13.234.20.89:8082/<REPOSITORY_KEY>/<IMAGE>:<TAG>
+docker login -u <USER_NAME> -p <USER_PASSWORD> 13.234.20.89:8082
 
+13.234.37.216
 
+export DOCKER_OPTS+=" --insecure-registry rajesh.13.234.20.89"
+docker login -u admin -p admin123 13.234.20.89:8082
+docker push 13.234.20.89:8082/rajesh/myimg
 
+vi /etc/docker/daemon.json
 
+{
+"insecure-registries" : ["13.234.20.89:8082"]
+}
 
+ 1004  vi /etc/docker/daemon.json
+ 1005  systemctl stop docker
+ 1006  systemctl start docker
+ 1007  docker login -u admin -p admin123 13.234.20.89:8082
+ 1008  clear
+ 1009  docker images
+ 1010  docker tag doc4 13.234.20.89:8082/rajesh/myimg
+ 1011  clear
+ 1012  docker push 13.234.20.89:8082/rajesh/myimg
+ 1013  clear
+ 1014  history
 
 
 
