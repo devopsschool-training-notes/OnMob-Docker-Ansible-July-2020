@@ -123,3 +123,148 @@ Assignment 1
 Assignment 2
 https://www.devopsschool.com/tutorial/docker/dockerfile/dockerfile-example-sample-lab.html
 
+============================
+Docker Networking
+===================
+Docker in built network driver
+		- bridge
+			Node Network with Container Network
+		- host
+		- none
+
+ 145  clwar
+  146  clear
+  147  docker ps -a
+  148  ifconfig
+  149  clear
+  150  ls
+  151  docker netowkr ls
+  152  docker netowork ls
+  153  docker network ls
+  154  ifconfig
+  155  docker network inspect 7ceb81568c39
+  156  clear
+  157  ls
+  158  docker run -itd ubuntu
+  159  ifconfig
+  160  docker run -itd ubuntu
+  161  ifconfig
+  162  clear
+  163  docker ps
+  164  docker exec e4bd8659d448 ifconfig
+  165  docker attach e4bd8659d448
+  166  clear
+  167  ls
+  168  docker ps
+  169  docker network ls
+  170  docker network create dev1
+  171  docker network ls
+  172  docker network inspect dev1
+  173  clear
+  174  docker network ls
+  175  docker network inspect dev2
+  176  docker network create dev2
+  177  clear
+  178  docker network ls
+  179  docker ps
+  180  docker inspect e4bd8659d448
+  181  docker network ls
+  182  docker network inspect dev1
+  183  docker network inspect dev2
+  184  clear
+  185  ls
+  186  docker network ls
+  187  docker ps
+  188  docker inspect e4bd8659d448
+  189  clear
+  190  docker network ls
+  191  docker run -itd --net=dev1 ubuntu
+  192  docker run -itd --net=dev1 --net=dev2  ubuntu
+  193  docker run -itd --net=dev1 --net=dev2 ubuntu
+  194  docker run -itd --net=dev2 ubuntu
+  195  docker ps
+  196  docker inspect 2a479ad18ae6
+  197  docker ps
+  198  docker inspect 171dad3a33dd
+  199  clear
+  200  docker ps
+  201  docker network ls
+  202  docker network connect 171dad3a33dd dev2
+  203  docker network connect dev2 171dad3a33dd
+  204  docker inspect 171dad3a33dd
+  205  clear
+  206  ls
+  207  docker network
+
+
+============================
+Docker Compose
+===================
+	Another tool but for Dev
+
+Docker Compose
+====================
+	Tool 
+		Would read docker-componse.yaml.
+
+				Services
+					Service1
+						build
+						image
+						env
+						vol
+						neto
+						port
+					Service2
+						build
+						image
+						env
+						vol
+						neto
+						port
+					Service3
+=====================================================================
+
+docker-componse up	1 command
+docker-componse down	1 command	
+docker-componse rm
+
+docker-componse up servce1
+docker-componse down servce1
+
+
+version: '2'
+services:
+  wordpress:
+    image: wordpress:latest # https://hub.docker.com/_/wordpress/
+    ports:
+      - 80:80 # change ip if required
+    volumes:
+      - ./wp-app:/var/www/html # Full wordpress project
+      #- ./plugin-name/trunk/:/var/www/html/wp-content/plugins/plugin-name # Plugin development
+      #- ./theme-name/trunk/:/var/www/html/wp-content/themes/theme-name # Theme development
+    environment:
+      WORDPRESS_DB_HOST: db
+      WORDPRESS_DB_NAME: wordpress
+      WORDPRESS_DB_USER: root
+      WORDPRESS_DB_PASSWORD: password
+    depends_on:
+      - db
+    networks:
+      - wordpress-network
+  db:
+    image: mysql:5.5 # https://hub.docker.com/_/mysql/ - or mariadb https://hub.docker.com/_/mariadb
+    ports:
+      - 3306:3306 # change ip if required
+    volumes:
+      - ./wp-data:/docker-entrypoint-initdb.d
+    environment:
+      MYSQL_DATABASE: wordpress
+      MYSQL_ROOT_PASSWORD: password
+    networks:
+      - wordpress-network
+networks:
+  wordpress-network:
+      driver: bridge
+
+https://www.devopsschool.com/tutorial/docker/docker-compose/docker-compose-example1.html
