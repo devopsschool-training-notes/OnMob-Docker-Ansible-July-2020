@@ -347,17 +347,68 @@ Maven - JAVA
 =====================
 Upload
 -------------------
+Example - https://github.com/devops-school/helloworld-java-maven
+
 Step 1- Modify pom.xml with Local repo
+
+<distributionManagement>
+    <repository>
+        <id>central</id>
+        <name>ip-172-31-18-219.ap-south-1.compute.internal-releases</name>
+        <url>http://13.234.20.89:8081/artifactory/onmoball</url>
+    </repository>
+    <snapshotRepository>
+        <id>snapshots</id>
+        <name>ip-172-31-18-219.ap-south-1.compute.internal-snapshots</name>
+        <url>http://13.234.20.89:8081/artifactory/onmoball</url>
+    </snapshotRepository>
+</distributionManagement>
+
 Step 2- Modify setting.xml with Upload acsesss
+admin
+admin123
+
+ <server>
+		<id>central</id>
+		<username>admin</username>
+		<password>admin123</password>
+</server>
+ <server>
+		<id>snapshots</id>
+		<username>admin</username>
+		<password>admin123</password>
+</server>
+
+
 Step 3- Make sure element id of repo in pom.xml and acsesss in setting.xml must BE same. 
 Step 4- mvn deploy
+	============
+	
 
 Download
 -------------------
 Step 1 - Proj1 and Proj2 and Both packages is Uploaded.
 Step 2 - Proj2 is dependent on Proj1. [modify pom.xml add dependency]
 Step 3 - Modify setting.xml with mirror element with artifactory group repo.
-Step 4 - mvn compile
+
+<mirror>
+      <id>central</id>
+      <name>Maven Repository Manager running on repo.mycompany.com</name>
+      <url>http://13.234.20.89:8081/artifactory/group-all</url>
+      <mirrorOf>*</mirrorOf>
+    </mirror>
+
+
+Step 4 - mvn compile or anything.
+
+13.234.37.216
+========================
+Prj1
+mvn archetype:generate -DgroupId=com.devopsschool.software -DartifactId=chat -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
+
+Prj2
+mvn archetype:generate -DgroupId=com.devopsschool.software -DartifactId=mail -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
+
 
 
 Docker - Container
