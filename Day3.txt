@@ -268,3 +268,108 @@ networks:
       driver: bridge
 
 https://www.devopsschool.com/tutorial/docker/docker-compose/docker-compose-example1.html
+--
+Dev --	> QA ------> Prod
+Image---> Image   --->Image
+---------------------------------
+docker	docker		kub
+dc	dc	
+	kub
+
+	
+Dockerr
+
+Ecs Introduction
+Link
+=============================================================
+=============================================================
+What is Artifactory?
+========================
+	Store our packages.
+	Kind of package
+	https://www.jfrog.com/confluence/display/JFROG/Package+Management
+
+	Java Package - Maven
+	Docker Package.
+
+	Versioning Of Package.
+	From Jfrog
+	Written in Java
+	Release
+		Community - FREE BUT limited package Type
+		Professional - ALL package Type + Paid
+		
+==============================
+Why Artifactory?
+==================================
+	Availability
+		External Dependency
+		Internal Dependency	
+	Security
+		ROLE BASED
+			UPLOAD
+			DOWNLOAD
+	Durability 
+	Integration with Package mgr.
+	Admin	
+		ACESS mgmt
+		Cleanup
+		Backup
+====================================
+Other tool - 
+	SonaType Nexus 
+	Archiva
+	Nuget
+	
+Architecute of Artifactory
+
+FRONT - JAVA + CSS + HTML + jS
+Backend - RDBMS 
+
+
+How to install it?
+=========================
+13.234.20.89
+http://13.234.20.89:8082/ui/packages
+admin
+admin123
+=================================
+UPLOAD and DOWNLOAD
+============================
+
+Repository TYPE
+======================
+Maven - JAVA
+	- hosted - Local - repo which is hosted in same artifactory server for READ and Write
+	- proxy - remote -  - cache of remote repo. - READ only.
+	- virtual - Group of hosted + proxy 
+
+=====================
+Upload
+-------------------
+Step 1- Modify pom.xml with Local repo
+Step 2- Modify setting.xml with Upload acsesss
+Step 3- Make sure element id of repo in pom.xml and acsesss in setting.xml must BE same. 
+Step 4- mvn deploy
+
+Download
+-------------------
+Step 1 - Proj1 and Proj2 and Both packages is Uploaded.
+Step 2 - Proj2 is dependent on Proj1. [modify pom.xml add dependency]
+Step 3 - Modify setting.xml with mirror element with artifactory group repo.
+Step 4 - mvn compile
+
+
+Docker - Container
+
+
+
+
+
+
+
+
+
+
+
+
