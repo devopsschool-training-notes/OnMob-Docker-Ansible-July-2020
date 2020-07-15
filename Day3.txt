@@ -1,0 +1,125 @@
+13.234.37.216
+==================================
+Docker Volume
+Dockerfile - CMD - ENTRY
+Docker Networking
+Docker Compose
+Dev --> QA --> Prod
+Ecs Introduction
+
+Artifactory
+	Docker images
+JIT
+
+===============================
+Docker Volume
+===============================
+Containers --> RW Layer
+			- DIFF
+
+----------We need persistancy---------------
+		with
+		Volume
+--------------------------------------------
+volume types
+	volume	/var/lib/docker/volumes
+	mnt	any path in the HOST
+	tmpfs	memory [ deleted once reboot]
+	plugins
+	
+ 16  cd /var/lib/docker/
+   17  find . -name devopsschool.txt
+   18  docker stop b38c966fab3b
+   19  find . -name devopsschool.txt
+   20  docker rm b38c966fab3b
+   21  find . -name devopsschool.txt
+   22  clear
+   23  ls
+   24  cd volumes/
+   25  pwd
+   26  ls
+   27  clear
+   28  docker volume
+   29  docker volume ls
+   30  docker volume create dev
+   31  docker volume ls
+   32  ls
+   33  docker volume create qa
+   34  docker volume ls
+   35  ls
+   36  pwd
+   37  docker help run
+   38  clear
+   39  docker run -itd -v dev:/opt/dev ubuntu
+   40  docker ps
+   41  docker exec b787fba558bf df -kh
+   42  clear
+   43  docker run -itd -v dev:/opt/dev -v qa:/opt/qa ubuntu
+   44  docker ps
+   45  docker exec 24cfefd6aa5d df -kh
+   46  docker exec 24cfefd6aa5d ls /opt
+   47  clear
+   48  ls
+   49  cd dev/
+   50  ls
+   51  cd _data/
+   52  clear
+   53  s
+   54  ls
+   55  touch file1.txt
+   56  docker ps
+   57  docker exec 24cfefd6aa5d ls /opt/dev
+   58  docker exec b787fba558bf ls /opt/dev
+   59  docker exec 24cfefd6aa5d touch /opt/dev/raju1.txt
+   60  ls
+   61  clear
+   62  docker ps
+   63  docker stop 24cfefd6aa5d b787fba558bf
+   64  docker rm 24cfefd6aa5d b787fba558bf
+   65  clear
+   66  ls
+   67  cd ..
+   68  ls
+   69  cd ..
+   70  ls
+   71  docker volume rm qa
+   72  docker volume prune
+   73  ls
+   74  clear
+   75  history
+=================================
+Dockerfile - CMD - ENTRY
+============================================
+what IS my pid1???
+---------------------------------------
+SHELL Mode
+	ls
+	python
+	java
+Exec Mode
+	[/bin/ls]
+	[/bin/python param1 param2]
+	[/bin/java]	
+=======================================
+CMD
+	PID1 can be replaced during runtime
+
+ENTRYPOINT
+=======================================
+	PID1 can NOT be replaced during runtime
+
+FROM Ubuntu
+CMD ["/bin/ls"]
+
+FROM Ubuntu
+ENTRYPOINT ["/bin/ls"]
+
+Assignment 1
+===================
+2 ENTRYPOINT 
+2 CMDs
+1 ENTRYPOINT 1 CMDs
+
+Assignment 2
+https://www.devopsschool.com/tutorial/docker/dockerfile/dockerfile-example-sample-lab.html
+
