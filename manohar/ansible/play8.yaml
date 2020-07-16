@@ -3,5 +3,5 @@
   hosts: all
   tasks:
   - name: lone git repo
-    git:  clone=yes repo=https://github.com/scmgalaxy/ansible-role-template dest=/opt/gitagasthi/
+    git:  clone=yes repo=https://github.com/scmgalaxy/ansible-role-template dest=/opt/manohar/
 ...
