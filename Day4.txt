@@ -368,6 +368,15 @@ web2
 3.3.3.3
 5.6.67.6
 5.4.4.3
+3.4.5.5
+3.3.3.3
+5.6.67.6
+5.4.4.3
+3.4.5.5
+3.3.3.3
+5.6.67.6
+5.4.4.3
+
 
 ##
 ##[weball]
@@ -385,6 +394,128 @@ ansible all -i inventory  -m service -a"name=httpd state=started" -u centos --ke
 Lab 
 ACS - 13.233.159.197
 cd /root/OnMob-Docker-Ansible-July-2020
+======================================================================================================================
+======================================================================================================================
+behavioural param
+https://docs.ansible.com/ansible/latest/user_guide/intro_inventory.html#connecting-to-hosts-behavioral-inventory-parameters
+
+
+3.4.5.5	ansible_port=23
+3.3.3.3 ansible_user=user1 ansible_password=mypass
+5.6.67.6 ansible_user=user2 ansible_ssh_private_key_file=remote.pem 
+5.4.4.3 ansible_ssh_executable=/opt/sshd
+3.4.5.5 ansible_user=user2 ansible_ssh_private_key_file=remote.pem ansible_become
+3.3.3.3 ansible_user=user2 ansible_ssh_private_key_file=remote.pem ansible_become=yes ansible_become_password=pass
+5.6.67.6  ansible_user=user2 ansible_ssh_private_key_file=remote.pem ansible_become=yes ansible_become_password=pass ansible_become_user
+5.4.4.3
+3.4.5.5
+
+=================================================
+
+[web1]
+35.154.85.209 
+13.234.19.14
+
+[web1:vars]
+ansible_user=centos 
+ansible_ssh_private_key_file=remote.pem 
+ansible_become=yes
+
+[web2]
+15.206.169.2 ansible_user=centos ansible_ssh_private_key_file=remote.pem ansible_become=yes
+
+[weball:children]
+web1
+web2
+
+ansible weball -i inventory -m yum -a"name=httpd state=present" -u centos --key-file=remote.pem -b
+ansible web1,web2 -i inventory  -m copy -a"src=index.html dest=/var/www/html" -u centos --key-file=remote.pem -b
+ansible all -i inventory  -m service -a"name=httpd state=started" -u centos --key-file=remote.pem -b
+
+=========================================================
+=========================================================
+
+
+Playbook
+	Is a code written in YAML by US.
+	Multiple Play.
+
+What is Play
+	Has Group
+	Has Tasks:
+		Task1 = ONE Module and its param
+		Task2 = ONE Module and its param
+		task3 = ONE Module and its param
+
+Playbook
+---------------------------------------------
+https://www.devopsschool.com/blog/anatomy-of-ansible-play-defined/
+	Play1
+	Has Group: group1,group2
+	Has Tasks:
+		Task1 = ONE Module and its param
+		Task2 = ONE Module and its param
+		task3 = ONE Module and its param
+
+
+	Play2
+	Has Group
+	Has Tasks:
+		Task1 = ONE Module and its param
+		Task2 = ONE Module and its param
+		task3 = ONE Module and its param
+
+---
+- name: Start the Play          
+  hosts: web
+  tasks:
+  - name: install the latest version of Apache
+    yum:
+      name: httpd
+      state: present
+
+  - name: install the latest version of Apache
+    yum: name=httpd state=present
+      
+  - name: Copy file with owner and permissions
+    copy:
+      src: index.html
+      dest: /var/www/html/
+
+  - name: Start service httpd, if not started
+    service:
+      name: httpd
+      state: started
+======================================================
+Workflow of running Playbook?
+Step 1 - Check a syntax issues in yaml
+	--syntax-check
+
+Step 2 - Dry Run
+		-C
+
+Step 3 - Run
+
+ 209  ansible-playbook play1.yaml -i inventory --syntax-check
+  210  ansible-playbook play1.yaml -i inventory --C
+  211  ansible-playbook play1.yaml -i inventory -C
+  212  clear
+  213  ansible-playbook play1.yaml -i inventory
+  214  clear
+  215  vi index.html
+  216  ansible-playbook play1.yaml -i inventory
+  217  clear
+===========================================================
+Assignment - 
+https://www.devopsschool.com/blog/ansible-playbook-lab-excercise-part-2/
+
+time - 40 Mins.
+
+
+
+
+
+
 
 
 
