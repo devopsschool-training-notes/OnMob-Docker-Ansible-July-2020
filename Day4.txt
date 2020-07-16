@@ -255,6 +255,137 @@ Saurabh Pawar	13.233.238.9
 Pooja bhatia das	13.126.255.240      
 Vishal	15.206.169.2
 RAJESH	13.233.159.197
+==============================================================
+Authentication & Authrization
+
+How a connections from ACS to ARS is Made?
+-----
+SSH
+
+How SSH Authentication & Authorization Works!!!
+------------------------------------------------
+Authentication 
+	IP address 
+	Port
+	username 	-u 
+	Password	-k
+
+	IP address 
+	Port
+	username 	-u
+	key		--key-file
+Authorization 
+	sudo without password	-b
+	sudo with password	-b -K
+	sudo with Another User and Password -b --become-user -K
+
+ansible localhost -m yum -a"name=httpd state=present"
+
+ansible localhost -m copy -a"src=index.html dest=/var/www/html"
+
+ansible localhost -m service -a"name=httpd state=started"
+
+What is Inventory?
+========================
+	is a (LIST) of Ipaddress/hostname (element)
+		- Can be passed over
+			- command line
+			- file [INI FORMAT]
+			- script
+			- direcrory
+		has a group
+			- all [ By ansible]
+			- nogroup [ By ansible]
+		has group of group
+		has a behavioural param
+		has varaibles
+35.154.85.209
+13.234.19.14
+15.206.169.2
+
+ansible all -i 35.154.85.209, -m yum -a"name=httpd state=present" -u centos --key-file=remote.pem -b
+ansible all -i 35.154.85.209, -m copy -a"src=index.html dest=/var/www/html" -u centos --key-file=remote.pem -b
+ansible all -i 35.154.85.209, -m service -a"name=httpd state=started" -u centos --key-file=remote.pem -b
+--------------------------------
+
+ansible all -i 35.154.85.209,13.234.19.14,15.206.169.2, -m yum -a"name=httpd state=present" -u centos --key-file=remote.pem -b
+ansible all -i 35.154.85.209,13.234.19.14,15.206.169.2, -m copy -a"src=index.html dest=/var/www/html" -u centos --key-file=remote.pem -b
+ansible all -i 35.154.85.209,13.234.19.14,15.206.169.2, -m service -a"name=httpd state=started" -u centos --key-file=remote.pem -b
+
+-----------------------------------------------
+ansible all -i 35.154.85.209,13.234.19.14,15.206.169.2,,13.234.19.14,15.206.169.2,,13.234.19.14,15.206.169.2,,13.234.19.14,15.206.169.2,,13.234.19.14,15.206.169.2,,13.234.19.14,15.206.169.2,,13.234.19.14,15.206.169.2,,13.234.19.14,15.206.169.2,,13.234.19.14,15.206.169.2,,13.234.19.14,15.206.169.2,,13.234.19.14,15.206.169.2,,13.234.19.14,15.206.169.2,,13.234.19.14,15.206.169.2,,13.234.19.14,15.206.169.2,,13.234.19.14,15.206.169.2,,13.234.19.14,15.206.169.2, -m yum -a"name=httpd state=present" -u centos --key-file=remote.pem -b
+
+inventory
+--------------
+35.154.85.209
+13.234.19.14
+15.206.169.2
+
+
+ansible all -i inventory -m yum -a"name=httpd state=present" -u centos --key-file=remote.pem -b
+ansible all -i inventory  -m copy -a"src=index.html dest=/var/www/html" -u centos --key-file=remote.pem -b
+ansible all -i inventory  -m service -a"name=httpd state=started" -u centos --key-file=remote.pem -b
+
+inventory
+--------------
+
+[web]
+35.154.85.209
+13.234.19.14
+15.206.169.2
+
+[db]
+3.4.5.5
+3.3.3.3
+5.6.67.6
+5.4.4.3
+
+ansible web -i inventory -m yum -a"name=httpd state=present" -u centos --key-file=remote.pem -b
+ansible db -i inventory  -m copy -a"src=index.html dest=/var/www/html" -u centos --key-file=remote.pem -b
+ansible all -i inventory  -m service -a"name=httpd state=started" -u centos --key-file=remote.pem -b
+
+inventory
+--------------
+
+[web1]
+35.154.85.209
+13.234.19.14
+
+[web2]
+15.206.169.2
+
+[weball:children]
+web1
+web2
+
+[weball]
+web1
+web2
+
+
+[db]
+3.4.5.5
+3.3.3.3
+5.6.67.6
+5.4.4.3
+
+##
+##[weball]
+##web1
+##web2
+
+
+
+ansible weball -i inventory -m yum -a"name=httpd state=present" -u centos --key-file=remote.pem -b
+ansible web1,web2 -i inventory  -m copy -a"src=index.html dest=/var/www/html" -u centos --key-file=remote.pem -b
+ansible all -i inventory  -m service -a"name=httpd state=started" -u centos --key-file=remote.pem -b
+
+
+=====================
+Lab 
+ACS - 13.233.159.197
+cd /root/OnMob-Docker-Ansible-July-2020
+
 
 
 
