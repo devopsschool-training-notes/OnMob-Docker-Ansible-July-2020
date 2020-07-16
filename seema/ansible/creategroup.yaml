@@ -1,0 +1,7 @@
+---
+- name: creategroup
+  hosts: localhost
+  tasks:
+    - name: createGroup
+      group:
+        name: deploy

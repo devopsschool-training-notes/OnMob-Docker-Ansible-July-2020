@@ -1,0 +1,8 @@
+---
+- name: usertogroup
+  hosts: localhost
+  tasks:
+    - name: usertogroup
+      user:
+        name: deploy-user
+        group: deploy

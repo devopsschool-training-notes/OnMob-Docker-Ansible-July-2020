@@ -1,0 +1,9 @@
+---
+- name: Start the Play
+  hosts: web1
+  tasks:
+  - name: Make Group
+    user:
+      name: deploy-user
+      state: present
+

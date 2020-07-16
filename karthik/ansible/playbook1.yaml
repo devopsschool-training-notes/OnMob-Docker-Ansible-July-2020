@@ -1,0 +1,9 @@
+---
+- name: Create a group
+  hosts: web2
+  tasks:
+  - name: Create a group
+    group:
+      name: deploy
+      state: present
+...

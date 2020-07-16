@@ -1,0 +1,7 @@
+- name: Play for copying index.html         
+  hosts: web
+  tasks:
+  - name: copy html file
+    copy:
+      src: index.html
+      dest: /var/www/html 

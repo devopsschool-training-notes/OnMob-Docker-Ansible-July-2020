@@ -1,0 +1,12 @@
+---
+- name: Start the Play
+  hosts: weball
+  tasks:
+  - name: copy a file
+    copy:
+      src: index.html
+      dest: /var/www/html
+  - name: start the service
+    service: 
+      name: httpd
+      state: started

@@ -1,0 +1,14 @@
+---
+- name: Install and start package
+  hosts: web2
+  tasks:
+  - name: Install and start package
+    yum:
+      name: httpd
+      state: present
+  - name: Start the service
+    service:
+      name: httpd
+      state: started
+...
+

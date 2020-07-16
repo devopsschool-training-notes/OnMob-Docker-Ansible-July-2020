@@ -1,0 +1,9 @@
+---
+- name: Playbook 5          
+  hosts: all
+  tasks:
+  - name: create a file called “index.html” in /var/www/html with some dummy html contents.
+    copy:
+      src:index.html 
+      dest:/var/www/html
+...

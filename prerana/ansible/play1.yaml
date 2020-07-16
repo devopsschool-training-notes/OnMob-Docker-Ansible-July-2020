@@ -1,0 +1,8 @@
+- name: Write a Ansible Playbook to create a group called “deploy”
+  hosts: web1
+  tasks:
+  - name: Create a group
+    group:
+      name=deploy
+...
+

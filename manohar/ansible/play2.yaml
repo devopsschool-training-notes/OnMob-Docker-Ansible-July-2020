@@ -1,0 +1,10 @@
+---
+- name: create user called “deploy-user”l
+  hosts: all
+  tasks:
+  - name: Create a user
+    user:
+      name=manohar-user
+      group=manoharg
+...
+

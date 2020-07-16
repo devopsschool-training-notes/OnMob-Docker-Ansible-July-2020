@@ -1,0 +1,8 @@
+---
+- name : start yaml for group creation
+  hosts : all  
+  tasks :
+  - name : create user deploy
+    group:
+     name: manoharg
+     state : present

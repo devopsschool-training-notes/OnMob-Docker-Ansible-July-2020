@@ -1,0 +1,11 @@
+
+---
+- name: Playbook 4          
+  hosts: all
+  tasks:
+  - name: start and enable the service named “httpd”
+    service:
+      name: httpd
+      state: started
+      enabled: yes
+...

@@ -1,0 +1,32 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.devopsschool.software</groupId>
+  <artifactId>mail</artifactId>
+  <packaging>jar</packaging>
+  <version>1.0</version>
+  <name>mail</name>
+  <url>http://maven.apache.org</url>
+
+<distributionManagement>
+    <repository>
+        <id>central</id>
+        <name>ip-172-31-18-219.ap-south-1.compute.internal-releases</name>
+        <url>http://13.234.20.89:8081/artifactory/onmoball</url>
+    </repository>
+    <snapshotRepository>
+        <id>snapshots</id>
+        <name>ip-172-31-18-219.ap-south-1.compute.internal-snapshots</name>
+        <url>http://13.234.20.89:8081/artifactory/onmoball</url>
+    </snapshotRepository>
+</distributionManagement>
+
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+</project>

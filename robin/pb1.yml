@@ -1,0 +1,9 @@
+---
+- name: Playbook 1          
+  hosts: all
+  tasks:
+  - name: create a group called “deploy”
+    group:
+      name: deploy
+      state: present
+...

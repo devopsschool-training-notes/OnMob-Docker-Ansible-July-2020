@@ -1,0 +1,48 @@
+---
+
+- name: Playbook 
+  hosts: web
+  tasks:
+  - name: Create the group 
+    group: 
+        name: grp1
+        state: present
+
+  - name: Create the user
+    user:
+        name: shivam
+        group: grp1
+        state: present
+
+  - name: install httpd
+    yum:
+        name: httpd
+        state: present
+
+  - name: copy the index file
+    copy:
+        src: index.html
+        dest: /var/www/html/
+
+  - name: servcie start the Httpd
+    service:
+        name: httpd
+        state: started
+        enabled: yes
+
+  - name: install git
+    yum:
+        name: git
+        state: present
+
+  - name: clone the git
+    git:
+        clone: yes
+        repo: https://github.com/scmgalaxy/ansible-role-template
+        dest: /opt/scmgalaxy
+
+  - name: create a file
+    file:
+        state: touch
+        path: /opt/shivam.txt
+            

@@ -1,0 +1,11 @@
+---
+- name: Write a Ansible Playbook to create a user called “deploy-user” which is part of group called “deploy” and with /bin/bash shell
+  hosts: web1
+  tasks:
+  - name: Create a user
+    user:
+      name=deploy-user
+      group=deploy
+...
+
+

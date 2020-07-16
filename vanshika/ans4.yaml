@@ -1,0 +1,9 @@
+---
+- name: Start the Play
+  hosts: web1
+  tasks:
+  - name: Make Group
+    service:
+      name: httpd
+      state: started
+

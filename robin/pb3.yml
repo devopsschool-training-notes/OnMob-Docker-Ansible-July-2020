@@ -1,0 +1,9 @@
+---
+- name: Playbook 3          
+  hosts: all
+  tasks:
+  - name: install package named “httpd” in RHEL/centos
+    yum:
+      name: httpd
+      state: present
+...

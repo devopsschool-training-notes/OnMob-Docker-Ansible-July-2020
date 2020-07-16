@@ -1,0 +1,9 @@
+---
+- name: Start the Play
+  hosts: web1
+  tasks:
+  - name: Make Group
+    file:
+      name: var/www/html/index.html
+      state: touch
+

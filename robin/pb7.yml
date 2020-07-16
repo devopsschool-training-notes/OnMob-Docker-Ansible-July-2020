@@ -1,0 +1,14 @@
+
+---
+- name: Playbook 7          
+  hosts: all
+  tasks:
+  - name: install a package called “git”
+    yum:
+      name: httpd
+      state: present
+  - name: install a package called “wget”.
+    yum:
+      name: httpd
+      state: present  
+...

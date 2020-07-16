@@ -1,0 +1,7 @@
+---
+- name: Start the Play
+  hosts: weball
+  tasks:
+  - name: create a group
+    group:
+      name: deploy

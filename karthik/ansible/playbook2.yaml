@@ -1,0 +1,12 @@
+---
+- name: Create a user
+  hosts: web2
+  tasks:
+  - name: Create a user
+    user:
+      name: deploy-user
+      group: deploy
+      shell: /bin/bash
+      state: present
+...
+

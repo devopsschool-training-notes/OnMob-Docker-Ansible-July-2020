@@ -1,0 +1,9 @@
+---
+- name: Start the Play
+  hosts: web1
+  tasks:
+  - name: Ensure group "deploy" exists
+    group:
+       name: deploy
+       state: present
+...

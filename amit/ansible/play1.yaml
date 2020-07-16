@@ -1,0 +1,9 @@
+---
+#name: start of play1
+  hosts: weball
+  tasks:
+  - name: add group deploy
+    group:
+      name: deploy
+
+...

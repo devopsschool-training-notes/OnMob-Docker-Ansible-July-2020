@@ -1,0 +1,10 @@
+---
+- name: Install package
+  hosts: web2
+  tasks:
+  - name: Install package
+    yum:
+      name: httpd
+      state: latest
+...
+

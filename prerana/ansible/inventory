@@ -1,0 +1,51 @@
+[web1]
+13.233.26.103 ansible_user=centos ansible_ssh_private_key_file=key/remote.pem ansible_become=yes
+3.6.92.46 ansible_user=centos ansible_ssh_private_key_file=key/remote.pem ansible_become=yes
+35.154.85.209 ansible_user=centos ansible_ssh_private_key_file=key/remote.pem ansible_become=yes
+13.127.238.70 ansible_user=centos ansible_ssh_private_key_file=key/remote.pem ansible_become=yes
+13.233.233.139 ansible_user=centos ansible_ssh_private_key_file=key/remote.pem ansible_become=yes
+
+[web2]
+13.232.244.171 ansible_user=centos ansible_ssh_private_key_file=key/remote.pem ansible_become=yes
+15.206.92.121 ansible_user=centos ansible_ssh_private_key_file=key/remote.pem ansible_become=yes
+13.233.141.110 ansible_user=centos ansible_ssh_private_key_file=key/remote.pem ansible_become=yes
+13.233.28.2 ansible_user=centos ansible_ssh_private_key_file=key/remote.pem ansible_become=yes
+
+[db]
+13.234.32.168 ansible_user=centos ansible_ssh_private_key_file=key/remote.pem ansible_become=yes
+13.235.246.178 ansible_user=centos ansible_ssh_private_key_file=key/remote.pem ansible_become=yes
+13.127.21.45 ansible_user=centos ansible_ssh_private_key_file=key/remote.pem ansible_become=yes
+13.234.19.14 ansible_user=centos ansible_ssh_private_key_file=key/remote.pem ansible_become=yes
+13.235.23.64 ansible_user=centos ansible_ssh_private_key_file=key/remote.pem ansible_become=yes
+
+[web:children]
+web1
+web2
+
+[all]
+13.233.26.103
+3.6.92.46
+35.154.85.209
+13.127.238.70
+13.233.233.139
+13.232.244.171
+15.206.92.121
+13.233.141.110
+13.233.28.2
+13.233.179.105
+13.232.173.191
+13.127.179.208
+13.234.32.168
+13.235.246.178
+13.127.21.45
+13.234.19.14
+13.235.23.64
+13.233.238.9
+13.126.255.240
+15.206.169.2
+13.233.159.197
+
+[all:vars]
+ansible_user=centos 
+ansible_ssh_private_key_file=remote.pem 
+ansible_become=yes

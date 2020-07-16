@@ -1,0 +1,11 @@
+
+---
+- name: Playbook 2          
+  hosts: all
+  tasks:
+  - name: create a user called “deploy-user” which is part of group called “deploy” and with /bin/bash shell
+    user:
+      name: deploy-user
+      shell: /bin/bash
+      group: deploy
+...

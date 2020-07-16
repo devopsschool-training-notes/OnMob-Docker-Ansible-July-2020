@@ -1,0 +1,36 @@
+- name: Start the Play          
+  hosts: web1
+  tasks:
+  - name: Ensure group "somegroup" exists
+     group:
+       name: deploy
+       state: present
+  - name: Add the user 'johnd' with a specific uid and a primary group of 'admin'
+     user:
+       name: deploy-user
+       state: present
+       group: deploy
+       shell: /bin/bash
+  - name: install the latest version of Apache
+     yum:
+       name: httpd
+       state: present
+  - name: Start service httpd, if not started
+     service:
+       name: httpd
+       state: started
+  - name: Copy file with owner and permissions
+     copy:
+       src: index.html
+       dest: /var/www/html/
+  - name: install the latest version of Apache
+     yum:
+       name: git
+       name: wget
+       state: present
+  - name: Clone git repo
+     git:
+       repo: 'https://foosball.example.org/path/to/repo.git'
+       dest: /opt
+
+  

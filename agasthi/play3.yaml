@@ -1,0 +1,7 @@
+---
+- name: Write a Ansible Playbook to install package named “httpd” in RHEL/centos.
+  hosts: web1
+  tasks:
+  - name: Install httpd
+    yum:  name=httpd state=present
+...

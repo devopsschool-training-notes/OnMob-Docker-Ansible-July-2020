@@ -1,0 +1,8 @@
+---
+- name: Start the play
+  hosts: weball
+  tasks:
+  - name: start the httpd service 
+    service:
+      name: httpd
+      state: started
