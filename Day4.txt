@@ -1,0 +1,261 @@
+What is Ansible?
+=====================
+	Config mgmt tool
+	Deployment tool
+	Written in Python
+	From redhat
+	Release
+		Ansible		- CMD - FREE 
+		Ansible Tower	- CMD + GUI + FREE Untile 10 nodes.
+		Ansible AWX	- CMD + GUI + FREE Forever [ Not for Production use]
+			[Most recent code of Ansible Tower which has not beed tested"] 
+	Extend Ansible Feature using Plugins
+	Agent less BUT ansible has agent TOOO.
+	
+Keyword
+---------
+Plugins and Modules are a same thing.
+
+What is Config mgmt?
+	Server(S)
+
+What is there in Server?
+	file
+	dir
+	package
+	shell
+	yum
+	apt
+	services
+	user
+	group
+	We call server resources.
+
+Using Ansible, you can manage a server resources config for multiple servers at a time so we call
+	ansible is config mgmt tool.
+=====================================================================
+Why Ansible?
+===========
+		Java + CC+++ + Python + perl
+		--------------------------------
+		Not easy to learn - write - extend - test - debug and share
+		#ansible is easy to learn - write - extend - test - debug and share
+
+		But SHELL - PS script is easy to learn - write - extend - test - debug and share
+		its not cross plaform
+		#Ansible is cross platform.
+
+		Ansible is IDEOMPOTENT
+		1st deploy - 10 Steps --> each step (1m) --> 10 mins	==== 
+		
+		Only 2 Changes...
+		SHELL - 2nd deploy - 2 Steps/10 Steps --> each step (1m) --> 10 mins	====
+ 
+		Ansible - 2nd deploy - 2 Steps/10 Steps --> each step (1m) --> 2 mins	====
+
+Evolution of Programmng Lang.
+------------------------------
+Compile Lang 		|  Interpret Lang |  Declarative lang with Domain Specific lang
+   1 YEAR			6 Months			1 Months
+JAVA,DOTNET,C/C++	  Perl Python PHP	YAML | JSON | XMl
+
+==================================================================
+
+Other Tools
+===================
+Coding - Ansible -> Puppet -> Chef -> Cfengine -> Salt
+ONly UI - UDeploy + Octopus Deploys
+
+===================================================
+How Ansible Works~!!  Ansible Architecture
+
+ACS				ARS
+================================================
+Ansible Control Server		Ansible Remote Server
+-------------------------------------------------------
+Linux Only			Windows and Linux
+64 BIT				Any BIT
+SSH + Python 2.7.x		Linux - SSH + Python 2.7.x
+				Windows - WINRAM + PS3.0 + DOTNET 4.X
+ACS	-------Protocol------> WINDOWS - HTTP
+	-------Protocol------> WINDOWS - SSH
+============================================================
+
+Components of ACS
+------------------------------------
+Ansible
+	Ansible core Executable(S)
+	Plugins - You can extend feaure of Ansible
+	Modules - is a piece of code which you run in ARS with a few parametes.
+	Config file - is a file using you can change a Ansible BEHAVIOUR
+
+Playbook
+	Is a code written in YAML by US.
+
+Inventory
+	Could be a file created by US containing list of ARS servers IP address..
+---------------------------------------
+Your roles in Ansible
+=============================================
+Ansible Dev
+	- Write a Code in Playbook(Yaml) [[[ FOCUS ]]]
+	- Write a Module (In Python)
+	- Write a plugins (In Python)
+
+Ansible Ops 
+	- Manage Entire ENV
+	- Host Assets
+	- Credentials
+	- Apply playbook or (role) to ARS
+
+
+
+
+How to become A JAVA Dev?
+------------------------------------
+JDK --> .JAVA		--> .class ---> Jar ---> WAR
+	---------
+	Variables
+	Operators
+	Conditioning
+	Looping
+	Mehtod
+	Classes
+
+How to become A Ansible Dev?
+-------------------------------------
+Ansible --> .YAML(Playbook)    -->  Roles
+	  ---------
+	  variables
+          operators
+	  mehtod
+	  cond
+	   loops
+	  modules
+	
+How to install Ansible?
+==============================
+ACS - 13.233.159.197
+https://www.devopsschool.com/blog/how-to-install-ansible-in-centos-7-rhel-7/
+
+$ sudo yum install wget -y
+$ wget https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+$ yum install https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+$ sudo rpm -i epel-release-latest-7.noarch.rpm
+$ sudo yum install ansible -y
+
+[root@ip-172-31-9-192 centos]# ansible --version
+ansible 2.9.10
+  config file = /etc/ansible/ansible.cfg
+  configured module search path = [u'/root/.ansible/plugins/modules', u'/usr/share/ansible/plugins/modules']
+  ansible python module location = /usr/lib/python2.7/site-packages/ansible
+  executable location = /bin/ansible
+  python version = 2.7.5 (default, Aug  7 2019, 00:51:29) [GCC 4.8.5 20150623 (Red Hat 4.8.5-39)]
+
+
+   8  ansible
+    9  ansible version
+   10  ansible --version
+   11  clear
+   12  which ansible
+   13  ls /bin/ansible*
+   14  clear
+   15  cd /usr/lib/python2.7/site-packages/ansible
+   16  ls
+   17  more /etc/ansible/ansible.cfg
+   18  clear
+====================================================
+What is your requirement?
+==========================
+Write a ansible code for Setting up a webserver in centos. apache.
+
+Psucode
+--------------------------
+Step 1 - Install httpd in centos			yum
+Step 2 - Copy Package(index.html) into /var/www/html	copy
+Step 3 - Start a httpd server				service
+
+https://docs.ansible.com/ansible/latest/modules/service_module.html
+https://docs.ansible.com/ansible/latest/modules/copy_module.html
+https://docs.ansible.com/ansible/latest/modules/yum_module.html
+=======================================================================
+
+CMD vs Code/Programs
+---------------
+
+WRITE A CODE(CMD OR Prorams) and Test in Local and then think about remote.
+=======================================================
+What is Ansible Module
+===================================
+is a piece of code which you run in ARS with a few parametes.
+ - python code
+ - ps code
+DO ONLY ONE THING in ARS.
+Module code is exist in ACS. You get when you install Ansible.
+
+How many modules are avaiable?
+==================================
+3000+
+https://docs.ansible.com/ansible/latest/modules/modules_by_category.html
+
+
+
+cp anaconda-ks.cfg /opt/
+--------------------------
+cmd  param1 param2
+------
+aka Module
+
+mkdir dirname
+--------------------------
+cmd  param1 
+
+yum install httpd
+systemctl start servicename
+--------------------------
+cmd  param1 param1 	
+     ------
+     action
+      stop
+       ena
+       disabl
+===========================================
+Ansible Adhoc Commands
+===========================================
+ansible localhost -m yum -a"name=httpd state=present"
+ansible localhost -m yum -a"name=httpd state=removed"
+
+ansible localhost -m copy -a"src=index.html dest=/var/www/html"
+
+ansible localhost -m service -a"name=httpd state=started"
+
+
+Assignment - 
+https://www.devopsschool.com/blog/ansible-adhoc-commands-lab-excercise-part-1/
+
+
+Agasthiyappan Arugadevan	13.233.26.103   
+Prerana Murthy	3.6.92.46       
+Shriram Patil	35.154.85.209   
+Vanshika Sharma	13.127.238.70   
+Karthik Aluguri	13.233.233.139  
+Seema Singh	13.232.244.171  
+Robin Kumar	15.206.92.121   
+Aradhana Abhijeet Deshpande	13.233.141.110  
+Saurav Bhasi	13.233.28.2     
+Koyel Mahata	13.233.179.105      
+Amit Kumar Singh	13.232.173.191  
+Jitendra Kumar Jha	13.127.179.208  
+SHIVAM PANDEY	13.234.32.168   
+gopinath.perumal	13.235.246.178  
+Shubham Rawani	13.127.21.45    
+Sushma Moolya	13.234.19.14    
+A Manohar	13.235.23.64    
+Saurabh Pawar	13.233.238.9    
+Pooja bhatia das	13.126.255.240      
+Vishal	15.206.169.2
+RAJESH	13.233.159.197
+
+
+
+
