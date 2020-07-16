@@ -1,6 +1,6 @@
 ---
-- name: creategroup
-  hosts: localhost
+- name: Start the play
+  hosts: web1
   tasks:
     - name: createGroup
       group:

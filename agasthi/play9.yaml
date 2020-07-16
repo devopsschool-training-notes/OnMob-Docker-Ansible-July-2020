@@ -27,6 +27,11 @@
   tasks:
   - name: Copy index file to httpd path
     lineinfile:  create=yes path=/var/www/html/index.html line='This is from my play book by Agasthi'
+- name: Write a Ansible Playbook to reboot a remote machine.
+  hosts: myserver
+  tasks:
+  - name: Send remotet host reboot
+    reboot: msg='reboot by agasthi' reboot_timeout=10  
 - name: Write a Ansible Playbook to install a package called “git”, “wget”.
   hosts: all
   tasks:

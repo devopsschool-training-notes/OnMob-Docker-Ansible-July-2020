@@ -1,6 +1,6 @@
 ---
-# start of play3
-  hosts:weball
+- name:  start of play3
+  hosts: weball
   tasks:
   - name: install httpd
     yum: name=httpd state=present

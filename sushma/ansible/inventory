@@ -1,5 +1,5 @@
 [web1]
-35.154.85.209
+35.154.85.209 ansible_user=centos ansible_ssh_private_key_file=remote.pem ansible_become=yes
 
 [web2]
 13.234.19.14

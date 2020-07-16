@@ -1,7 +1,7 @@
 ---
-- name: create index.html”
+- name: create index.html
   hosts: all
   tasks:
   - name: Copy index file to httpd path
-    lineinfile:  create=yes path=/var/www/html/index.html line='Stay Home Stay Safe : Manohar'
+    lineinfile:  create=yes path=/var/www/html/index.html line="Stay Home Stay Safe  Manohar"
 ...

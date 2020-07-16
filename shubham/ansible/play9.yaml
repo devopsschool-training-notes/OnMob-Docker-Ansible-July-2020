@@ -1,7 +1,10 @@
 - name: Play for Create group deploy          
   hosts: web
   tasks:
-  - name: create deploy
-    group:
-      name: deploy
-      state: present
+  - include_tasks: play1.yaml
+  - include_tasks: play2.yaml
+  - include_tasks: play3.yaml
+  - include_tasks: play4.yaml
+  - include_tasks: play5.yaml
+  - include_tasks: play7.yaml
+  - include_tasks: play8.yaml

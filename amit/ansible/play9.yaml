@@ -1,51 +1,29 @@
 ---
-#name: start of play1
+- name: start of play9 all tasks togeather
   hosts: weball
   tasks:
   - name: add group deploy
     group:
       name: deploy
 
-# start of play2
-  hosts: weball
-  tasks:
   - name: add user user-deploy
     user: name=deploy-user group=deploy shell=/bin/bash
 
-# start of play3
-  hosts: weball
-  tasks:
   - name: install httpd
     yum: name=httpd state=present
     
-
-# start of play4
-  hosts: weball
-  tasks:
   - name: start service httpd
     service: name=httpd state=started
 
-
-# start of play5
-  hosts: weball
-  tasks:
   - name: create file “index.html” in /var/www/html
     file: path=/var/www/html/index.html state=directory
 
-# start of play6
-
-# start of play7
-  hosts: weball
-  tasks:
   - name: install git
     yum: name=git state=present
 
   - name: install wget
     yum: name=wget state=present
 
-# start of play8
-  hosts: weball
-  tasks:
   - name: clone git
     git: dest=. repo=https://github.com/scmgalaxy/ansible-role-template
 

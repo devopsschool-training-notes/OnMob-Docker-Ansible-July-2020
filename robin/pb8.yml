@@ -3,9 +3,9 @@
 - name: Playbook 8          
   hosts: all
   tasks:
-  - clone: git repo. thttps://github.com/scmgalaxy/ansible-role-template
+  - name: clone git repo.
     git:
       clone:yes 
-      repo:https://github.com/scmgalaxy/ansible-role-template dest=/opt/git
+      repo:https://github.com/scmgalaxy/ansible-role-template 
+      dest:/opt/git
 ...
-

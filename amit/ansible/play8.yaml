@@ -1,5 +1,5 @@
 ---
-# start of play8
+- name: start of play8
   hosts:weball
   tasks:
   - name: clone git

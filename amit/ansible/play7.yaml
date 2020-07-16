@@ -1,5 +1,5 @@
 ---
-# start of play7
+- name: start of play7
   hosts:weball
   tasks:
   - name: install git

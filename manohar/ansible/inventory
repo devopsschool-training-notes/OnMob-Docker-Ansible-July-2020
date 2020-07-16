@@ -1,3 +1,5 @@
+
+
 [web1]
 13.232.244.171  
 15.206.92.121  
@@ -6,6 +8,20 @@
 13.233.26.103   
 3.6.92.46       
 35.154.85.209 
+
+[all]
+13.232.244.171
+15.206.92.121
+13.233.26.103
+3.6.92.46
+35.154.85.209
+13.127.238.70
+13.233.233.139
+
+[all:vars]
+ansible_ssh_private_key_file=remote.pem 
+ansible_become=yes 
+ansible_become_password=pass 
 
 [weball:children]
 web1

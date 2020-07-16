@@ -1,6 +1,6 @@
 ---
-# start of play2
-  hosts:weball
+- name: start of play2
+  hosts: weball
   tasks:
   - name: add user user-deploy
     user: name=deploy-user group=deploy shell=/bin/bash

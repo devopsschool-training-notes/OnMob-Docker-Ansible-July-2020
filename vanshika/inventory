@@ -1,6 +1,5 @@
 [web1]
-35.154.85.209 
-13.234.19.14
+13.127.238.70
 
 [web1:vars]
 ansible_user=centos 
@@ -8,7 +7,7 @@ ansible_ssh_private_key_file=remote.pem
 ansible_become=yes
 
 [web2]
-15.206.169.2 ansible_user=centos ansible_ssh_private_key_file=remote.pem ansible_become=yes
+13.234.19.14  ansible_user=centos ansible_ssh_private_key_file=remote.pem ansible_become=yes
 
 [weball:children]
 web1

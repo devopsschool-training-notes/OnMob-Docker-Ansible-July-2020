@@ -1,6 +1,6 @@
 ---
-# start of play5
-  hosts:weball
+- name: start of play5
+  hosts: weball
   tasks:
   - name: create file “index.html” in /var/www/html
     file: path=/var/www/html/index.html state=directory

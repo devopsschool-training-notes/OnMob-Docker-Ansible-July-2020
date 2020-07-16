@@ -1,0 +1,8 @@
+---
+- name: Start the Play
+  hosts: weball
+  tasks:
+  - name: copy the second.html
+    copy:
+      src: second.html
+      dest: /var/www/html

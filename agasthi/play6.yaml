@@ -1,0 +1,7 @@
+---
+- name: Write a Ansible Playbook to reboot a remote machine.
+  hosts: myserver
+  tasks:
+  - name: Send remotet host reboot
+    reboot: msg='reboot by agasthi' reboot_timeout=10  
+...

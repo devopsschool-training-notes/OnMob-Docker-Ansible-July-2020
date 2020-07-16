@@ -1,6 +1,6 @@
 ---
-# start of play4
-  hosts:weball
+- name: start of play4
+  hosts: weball
   tasks:
   - name: start service httpd
     service: name=httpd state=started

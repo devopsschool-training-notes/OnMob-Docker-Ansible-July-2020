@@ -1,5 +1,5 @@
 ---
-#name: start of play1
+- name: start of play1
   hosts: weball
   tasks:
   - name: add group deploy

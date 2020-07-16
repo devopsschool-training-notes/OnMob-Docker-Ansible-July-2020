@@ -1,6 +1,5 @@
 ---
 - hosts: web
-  become_method: root
   tasks:
   - name: create a group called deploy
     group:

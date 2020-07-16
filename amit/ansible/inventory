@@ -1,10 +1,8 @@
-[groupamit]
-13.232.173.191
-
 [web1]
 35.154.85.209
 13.234.19.14
 13.232.173.191
+
 
 [web1:vars]
 ansible_user=centos

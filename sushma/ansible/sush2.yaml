@@ -1,0 +1,11 @@
+---
+- name: Start the Play
+  hosts: web1
+  tasks:
+  - name: Add the user 'johnd' with a specific uid and a primary group of 'admin'
+    user:
+       name: deploy-user
+       state: present
+       group: deploy
+       shell: /bin/bash
+...
