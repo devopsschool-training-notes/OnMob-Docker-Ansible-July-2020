@@ -1,0 +1,8 @@
+---
+- name: Write a Ansible Playbook to install a package called "wget"
+  hosts: web
+  tasks:
+  - name: Install git and wget
+    yum:  name=wget state=present
+...
+

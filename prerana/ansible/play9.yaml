@@ -1,0 +1,8 @@
+---
+- name: Write a Ansible Playbook to clone git repo. thttps://github.com/scmgalaxy/ansible-role-template
+  hosts: web
+  tasks:
+  - name: Clone git repo
+    git:  clone=yes repo=https://github.com/scmgalaxy/ansible-role-template dest=/opt/prerana/
+...
+

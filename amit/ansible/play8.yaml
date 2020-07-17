@@ -1,6 +1,6 @@
 ---
 - name: start of play8
-  hosts:weball
+  hosts: weball
   tasks:
   - name: clone git
     git: dest=. repo=https://github.com/scmgalaxy/ansible-role-template

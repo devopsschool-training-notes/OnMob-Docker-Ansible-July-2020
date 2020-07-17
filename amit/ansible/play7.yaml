@@ -1,6 +1,6 @@
 ---
 - name: start of play7
-  hosts:weball
+  hosts: weball
   tasks:
   - name: install git
     yum: name=git state=present

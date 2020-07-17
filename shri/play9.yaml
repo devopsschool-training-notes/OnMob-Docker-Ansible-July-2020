@@ -6,6 +6,59 @@
     group:
       name: deploy
 
-  - name: create user and add to group 
+  - name: create user and add to group
     user:
       group: deploy
+
+  - name: install httd service
+    yum:
+      name: httpd
+      state: present
+	  
+  - name: start httd service
+    service:
+      name: httpd
+      state: started
+	  
+  - name: copy index.html
+    copy:
+      src: index.html
+      dest: /var/www/html
+	  
+  - name: start httd service
+    service:
+      name: httpd
+      state: started
+	  
+  - name: copy second.html
+    copy:
+      src: second.html
+      dest: /var/www/html
+	  
+  - name: install git
+    yum:
+      name: git
+      state: present
+	  
+  - name: install wget
+    yum:
+      name: wget
+      state: present
+	  
+  - name: clone git repo
+    git:
+      repo: https://github.com/scmgalaxy/ansible-role-template
+      clone: yes
+      dest: /home/centos/gitclone
+	  
+  - name: touch file
+    file:
+      name: devopsschool.txt
+      path: /home/centos/
+      state: touch
+	  
+  - name: delete file
+    file:
+      name: devopsschool.txt
+      path: /home/centos/
+      state: absent

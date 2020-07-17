@@ -1,0 +1,46 @@
+
+
+
+
+---
+- hosts: weball
+  remote_user: root
+  tasks:
+  - name: create a group called deploy
+    group:
+      name: deploy
+  - name: create a user deploy-user and add it to deploy group
+    user:
+      name: deploy-user
+      shell: /bin/bash
+      group: deploy
+  - name: install httpd in centos
+    yum:
+      name: httpd
+      state: present
+  - name: start httpd service
+    service:
+      name: httpd
+      state: started
+  - name: copy index.html to var/www/html
+    copy:
+      src: index.html
+      dest: /var/www/html 
+  - name: install git
+    yum:
+      name: git
+      state: present
+  - name: install wget
+    yum:
+      name: wget
+      state: present
+  - name: clone git repo https://github.com/scmgalaxy/ansible-role-template
+    git:
+      repo: https://github.com/scmgalaxy/ansible-role-template
+      dest: /var/clonedrepo
+  - name: reboot the machine
+    reboot:
+      msg: Done with this!
+    
+
+        

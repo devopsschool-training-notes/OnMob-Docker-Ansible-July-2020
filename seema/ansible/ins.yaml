@@ -1,0 +1,8 @@
+  - name: Start the Play
+  hosts: localhost
+  tasks:
+  - name: install the latest version of Apache
+    yum:
+      name: httpd
+      state: present
+

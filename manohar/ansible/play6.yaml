@@ -1,0 +1,7 @@
+---
+- name: reboot your machine
+  hosts: localhost
+  tasks:
+  - name: reboot your machine
+    reboot: msg='rebooting' reboot_timeout=10 
+...

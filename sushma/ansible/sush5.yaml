@@ -1,0 +1,9 @@
+---
+- name: Start the Play
+  hosts: web1
+  tasks:
+  - name: Copy file with owner and permissions
+    copy:
+       src: index.html
+       dest: /var/www/html/
+...

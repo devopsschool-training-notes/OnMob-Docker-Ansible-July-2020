@@ -3,5 +3,5 @@
   hosts: web1
   tasks:
   - name: Install httpd
-    yum:  name=httpd state=present enabled=yes
+    service:  name=httpd state=started enabled=yes
 ...

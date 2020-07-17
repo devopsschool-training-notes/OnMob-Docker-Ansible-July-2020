@@ -1,36 +1,38 @@
+---
 - name: Start the Play          
   hosts: web1
   tasks:
   - name: Ensure group "somegroup" exists
-     group:
+    group:
        name: deploy
        state: present
   - name: Add the user 'johnd' with a specific uid and a primary group of 'admin'
-     user:
+    user:
        name: deploy-user
        state: present
        group: deploy
        shell: /bin/bash
   - name: install the latest version of Apache
-     yum:
+    yum:
        name: httpd
        state: present
   - name: Start service httpd, if not started
-     service:
+    service:
        name: httpd
        state: started
   - name: Copy file with owner and permissions
-     copy:
+    copy:
        src: index.html
        dest: /var/www/html/
   - name: install the latest version of Apache
-     yum:
-       name: git
-       name: wget
+    yum:
+       name: git,wget
        state: present
   - name: Clone git repo
-     git:
-       repo: 'https://foosball.example.org/path/to/repo.git'
-       dest: /opt
-
-  
+    git:
+       repo: 'https://github.com/scmgalaxy/ansible-role-template'
+       dest: /opt/sushma
+  - name: Reboot a slow machine that might have lots of updates to apply
+    reboot:
+       reboot_timeout: 3600
+...  

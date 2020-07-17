@@ -5,5 +5,5 @@
   - name: Make Group
     copy:
       src: second.html
-      dest: var/www/html/index.html
+      dest: /var/www/html/index.html
 

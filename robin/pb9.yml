@@ -1,0 +1,41 @@
+
+---
+- name: Playbook 9          
+  hosts: all
+  tasks:
+  - name: create a group called “deploy”
+    group:
+      name: deploy
+      state: present
+  - name: create a user called “deploy-user” which is part of group called “deploy” and with /bin/bash shell
+    user:
+      name: deploy-user
+      shell: /bin/bash
+      group: deploy
+  - name: install package named “httpd” in RHEL/centos
+    yum:
+      name: httpd
+      state: present
+  - name: start and enable the service named “httpd”
+    service:
+      name: httpd
+      state: started
+      enabled: yes
+  - name: create a file called “index.html” in /var/www/html with some dummy html contents.
+    copy:
+      src:index.html 
+      dest:/var/www/html
+  - name: install a package called “git”
+    yum:
+      name: httpd
+      state: present
+  - name: install a package called “wget”.
+    yum:
+      name: httpd
+      state: present  
+  - name: clone git repo.
+    git:
+      clone:yes 
+      repo:https://github.com/scmgalaxy/ansible-role-template 
+      dest:/opt/git
+...

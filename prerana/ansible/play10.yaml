@@ -1,0 +1,42 @@
+---
+- name: Write a Ansible Playbook to create a group called “deploy”
+  hosts: web
+  tasks:
+  - name: Create a group
+    group:
+      name=deploy
+- name: Write a Ansible Playbook to create a user called “deploy-user” which is part of group called “deploy” and with /bin/bash shell
+  hosts: web
+  tasks:
+  - name: Create a user
+    user:
+      name=deploy-user
+      group=agasthi
+- name: Write a Ansible Playbook to install package named “httpd” in RHEL/centos.
+  hosts: web
+  tasks:
+  - name: Install httpd
+    yum:  name=httpd state=present
+- name: Write a Ansible Playbook to start and enable the service named “httpd”
+  hosts: web
+  tasks:
+  - name: start httpd
+    service:  name=httpd state=started enabled=yes
+- name: Write a Ansible Playbook to create a file called “index.html” in /var/www/html with some dummy html contents.
+  hosts: web
+  tasks:
+  - name: Copy index file to httpd path
+    lineinfile:  create=yes path=/var/www/html/index.html line='This is from my play book by Agasthi'
+
+- name: Write a Ansible Playbook to install a package called “git”, “wget”.
+  hosts: web
+  tasks:
+  - name: Install git and wget
+    yum:  name=git,wget state=present
+- name: Write a Ansible Playbook to clone git repo. thttps://github.com/scmgalaxy/ansible-role-template
+  hosts: web
+  tasks:
+  - name: Clone git repo
+    git:  clone=yes repo=https://github.com/scmgalaxy/ansible-role-template dest=/opt/prerana/
+...
+

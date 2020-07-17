@@ -1,0 +1,10 @@
+---
+- name: Start the Play
+  hosts: web1
+  tasks:
+  - name: install the latest version of Git and wget
+    yum:
+       name: git,wget
+       state: present
+...
+
