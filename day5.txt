@@ -8,6 +8,7 @@
 ---------------------
 - Template
 - Handlers
+- script
 ===============================
 Roles - THE END
 ===============================
@@ -192,15 +193,78 @@ https://www.devopsschool.com/tutorial/ansible/ansible-looping-programming-playbo
        - htop
        - vim
     when: ansible_os_family == "Debian"
+==================================================================
+==================================================================
+- script
+- Template
+- Handlers
+
+- name: Start the Play
+  hosts: weball
+  vars:
+    myname: rajutemp
+    dir: temp
+    port: 81
+
+  tasks:
+  - name: install the latest version of Apache
+    yum:
+      name: httpd
+      state: present
+    when: ansible_os_family == "RedHat"
+
+  - name: Run a script with arguments (using 'cmd' parameter)
+    script:
+      cmd: deploy.sh
+
+  - name: Copy file with owner and permissions
+    copy:
+      src: index.html
+      dest: /var/www/html/
+
+  - name: Create a directory if it does not exist
+    file:
+      path: /var/www/html/{{ dir }}
+      state: directory
+      mode: '0755'
+
+  - name: Template a file to /etc/files.conf
+    template:
+      src: index.html.j2
+      dest: /var/www/html/{{ dir }}/index.html
+
+  - name: Template a file to /etc/files.conf
+    template:
+      src: httpd.conf.j2
+      dest: /etc/httpd/conf/httpd.conf
+    notify: restart service
+      
+  - name: Start service httpd, if not started
+    service:
+      name: httpd
+      state: started
+
+  handlers:
+  - name: restart service
+    service:
+      name: httpd
+      state: restarted
 
 
+- Template
+========================================
+if you want to interpolate vars in files. you need to do following.
+1. file exten must be postfixed with .j2
+2. use a ansible module template
+
+Handlers
+======================
+its a task but DO NOT execute
+	until
+	 - call for it &&
+	 - calling tasks is having changed == true
 
 
-
-
-
-
-
-
+Assignment - https://www.devopsschool.com/blog/ansible-playbook-lab-excercise-part-3/
 
 
