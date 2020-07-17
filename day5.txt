@@ -266,5 +266,74 @@ its a task but DO NOT execute
 
 
 Assignment - https://www.devopsschool.com/blog/ansible-playbook-lab-excercise-part-3/
+================================================================================
+=================================================================================
+What is Role
+================================
+	is a way to org/manag folllwing.
+	Easy to share...
+	Easy to extend
+	- tasks
+	- vars
+	- templates
+	- files
+	- handlers
+
+[root@ip-172-31-9-192 web]# tree
+.
+├── defaults		# default vars
+│   └── main.yml
+├── files		# files
+├── handlers		# handlers tasks
+│   └── main.yml
+├── meta		# META
+│   └── main.yml
+├── README.md
+├── tasks		# tasks dir
+│   └── main.yml
+├── templates		# .j2 files
+├── tests
+│   ├── inventory
+│   └── test.yml
+└── vars		# vars
+    └── main.yml
+
+- name: Start the Play
+  hosts: weball
+  roles:
+    - web
+
+==========================================
+
+Ansible is not a tool for UNDO
+	BUT redo.
+
+	install apache.
+	before apache install state - NOT POSSIBLE
+	uninstall apache
+	
+
+Project 
+https://www.devopsschool.com/blog/ansible-role-project-1/
+
+===============================
+Feedback	- COMP
+===============================
+How can you reach out to me?
+===============================
+http://rajeshkumar.xyz/
+
+Turotials
+Blogs
+Videos
+Slides
+---------------------
+https://www.devopsschool.com/kit/master-in-devops-engineering.html
+
+
+
+
+
+
 
 
