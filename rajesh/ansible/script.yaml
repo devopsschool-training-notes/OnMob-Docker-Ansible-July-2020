@@ -1,0 +1,12 @@
+- name: Start the Play
+  hosts: weball
+  tasks:
+  - name: install the latest version of Apache
+    yum:
+      name: httpd
+      state: present
+    when: ansible_os_family == "RedHat"
+
+  - name: Run a script with arguments (using 'cmd' parameter)
+    script:
+      cmd: deploy.sh

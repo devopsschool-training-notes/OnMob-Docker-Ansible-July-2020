@@ -1,0 +1,11 @@
+---
+- name: Write a Ansible Playbook to create a file called “index.html” in /var/www/html with some dummy html contents.
+  hosts: web
+  vars:
+    msg: 'This is from playbook'
+  tasks:
+  - debug:
+      msg: System {{ msg }}
+
+...
+

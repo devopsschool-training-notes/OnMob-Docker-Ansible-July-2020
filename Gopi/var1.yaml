@@ -1,0 +1,20 @@
+- name: Start the Play
+  hosts: weball
+  vars:
+      myname: Gopi 
+      age: 22
+  vars_files:
+      - ext-var.yaml
+  vars_prompt:
+      - name: "Version"
+              prompt: "Which version Do you want to install?"
+
+  tasks:
+      - debug:
+              msg: System {{ myname }} has age {{ age }}
+      - debug:
+              msg: System {{ Version }}
+      - include_vars: ext-var-tasks.yaml
+      - debug:
+              msg: System {{ myname }} has age {{ age }}
+

@@ -1,0 +1,13 @@
+---
+- name: Write a Ansible Playbook to create a file called “index.html” in /var/www/html with some dummy html contents.
+  hosts: centos
+  vars:
+    msg: 'This is from playbook'
+  tasks:
+  - name: Copy index file to httpd path
+    lineinfile:  create=yes path=/var/www/html/index.html line='DevOps Training'
+  - debug:
+      msg: System {{ msg }}
+
+...
+

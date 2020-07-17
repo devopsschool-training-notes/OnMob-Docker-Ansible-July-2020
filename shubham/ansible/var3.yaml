@@ -1,0 +1,17 @@
+- name: Start the Play
+  hosts: web
+  vars:
+    myname: shubhaminplay
+    age: 16
+  vars_files:
+    - ext-var.yaml
+  vars_prompt:
+    - name: "Version"
+      prompt: "Which version Do you want to install?"
+      private: no
+
+  tasks:
+  - debug:
+      msg: System {{ myname }} has uuid {{ age }}
+  - debug:
+      msg: System {{ Version }}

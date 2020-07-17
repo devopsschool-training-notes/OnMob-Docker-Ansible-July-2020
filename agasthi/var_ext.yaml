@@ -1,0 +1,11 @@
+---
+- name: Write a Ansible Playbook to test external variable file
+  hosts: web
+  vars:
+    - include: var-file.yaml
+  tasks:
+  - debug:
+      msg: System {{ msg }}
+
+...
+

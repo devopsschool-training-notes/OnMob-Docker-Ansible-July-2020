@@ -1,5 +1,5 @@
 --me: Start the Play
-  hosts: web1
+  hosts: weball
   tasks:
   - name: install the latest version of Apache
     yum:

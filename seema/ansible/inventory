@@ -1,19 +1,13 @@
-[web1]
-35.154.85.209
-13.234.19.14
+[weball:vars]
+ansible_user=centos
+ansible_ssh_private_key_file=remote.pem
+ansible_become=yes
+myname=rajeshininvent
+age=19
 
-[web2]
-15.206.169.2
-
-[weball:children]
-web1
-web2
 
 [weball]
-web1
-localhost
-
-[db]
-13.232.244.171
-1.1.1.1
-127.0.0.1
+13.127.82.113
+13.235.9.49 ansible_user=ubuntu
+5.5.6.6
+6.7.7.7

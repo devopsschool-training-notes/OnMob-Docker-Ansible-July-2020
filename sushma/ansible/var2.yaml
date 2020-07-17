@@ -1,0 +1,34 @@
+- name: Start the Play
+
+  hosts: weball
+
+  vars:
+
+    myname: sushma
+
+    age: 16
+
+  vars_files:
+
+    - ext-var.yaml
+
+  vars_prompt:
+
+    - name: "Version"
+
+      prompt: "Which version Do you want to install?"
+
+
+
+  tasks:
+
+  - debug:
+
+      msg: System {{ myname }} has uuid {{ age }}
+
+  - debug:
+
+      msg: System {{ Version }} 
+
+
+

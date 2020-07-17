@@ -1,0 +1,7 @@
+- name: Play for nstalling httpd in centos          
+  hosts: web
+  tasks:
+  - name: install httpd
+    yum:
+      name: httpd
+      state: present
