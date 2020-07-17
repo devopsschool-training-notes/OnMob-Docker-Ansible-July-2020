@@ -1,0 +1,17 @@
+
+- name: Start the Play
+  hosts: "{{ variable_host | default('weball') }}"
+  tasks:
+  - name: install the latest version of Apache
+    yum:
+      name: httpd
+      state: present
+  - name: Template a file to /etc/files.conf
+    template:
+      src: httpd.conf.j2
+      dest: /etc/httpd/conf/httpd.conf
+  - name: Start service httpd, if not started
+    service:
+      name: httpd
+      state: restarted
+

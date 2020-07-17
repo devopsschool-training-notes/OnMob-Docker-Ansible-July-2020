@@ -1,0 +1,5 @@
+- name: Start the Play
+  vars:
+    myname: rajutemp
+    dir: temp
+    port: 81

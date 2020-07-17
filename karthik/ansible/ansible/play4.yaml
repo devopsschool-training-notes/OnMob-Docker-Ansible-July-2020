@@ -1,0 +1,8 @@
+- name: Play for start and enable httpd          
+  hosts: web
+  tasks:
+  - name: start and enable httpd
+    service:
+      name: httpd
+      state: started
+      enabled: yes

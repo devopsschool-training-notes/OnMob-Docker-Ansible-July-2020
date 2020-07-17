@@ -1,0 +1,24 @@
+- name: Start the Play
+  hosts: weball
+  vars: 
+         myname: seema
+  tasks:
+  - name: install httpd in ubuntu
+    yum:
+      name: httpd
+      state: present
+    when: ansible_os_family == "Ubuntu"
+
+  - name: Install httpd  (state=present is optional)
+    apt:
+      name: apache2
+      state: present
+      update_cache: yes
+    when: ansible_os_family == "RHEL"
+
+  - name: Copy file with owner and permissions
+    copy:
+      src: index.html
+      dest: /var/www/html/
+
+

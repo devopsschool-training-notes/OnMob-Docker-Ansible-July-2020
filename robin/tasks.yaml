@@ -1,0 +1,12 @@
+- name: install the latest version of Apache
+    yum: name=httpd state=present
+
+  - name: Copy file with owner and permissions
+    copy:
+      src: index.html
+      dest: /var/www/html/
+
+  - name: Start service httpd, if not started
+    service:
+      name: httpd
+      state: started

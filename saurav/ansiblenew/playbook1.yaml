@@ -2,7 +2,7 @@
 - name: Start the Play
   hosts: weball
   tasks:
-  - name: install the latest version of Apache
-    yum:
+ 
+ystem {{ myname }} has age {{ age }}:
       name: httpd
       state: present

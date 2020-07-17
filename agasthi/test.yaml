@@ -1,0 +1,24 @@
+- name: start assign1
+  hosts: dev
+  vars:
+
+  tasks:
+  - name: install web server Apache
+    yum:
+      name: httpd
+      state: present
+    when: (ansible_os_family == "RedHat")
+
+  - name: Install Apache on ubuntu
+    apt: name=apache2 update_cache=yes state=latest
+    when: (ansible_os_family == "Debian")
+
+  - name: list out directory
+    shell: "ls -d /etc/*/"
+    register: reg_output
+
+  - debug:
+      msg: This is a directory {{item}} in /etc
+    with_items:
+      - "{{ reg_output.stdout_lines }}"
+

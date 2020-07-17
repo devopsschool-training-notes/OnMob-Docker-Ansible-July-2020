@@ -1,0 +1,10 @@
+- name: Start of Play
+  hosts: devqa
+  vars_prompt:
+    - name: "prompt_var"
+      private: no
+      prompt: "Enter prompt var value"
+
+  roles:
+    - roleProject1
+    - geerlingguy.java

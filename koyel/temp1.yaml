@@ -1,0 +1,26 @@
+- name: Start the Play
+  hosts: weball
+  vars:
+    myname: rajutemp
+
+  tasks:
+  - name: install the latest version of Apache
+    yum:
+      name: httpd
+      state: present
+    when: ansible_os_family == "RedHat"
+
+  - name: Run a script with arguments (using 'cmd' parameter)
+    script:
+      cmd: deploy.sh
+
+  - name: Copy file with owner and permissions
+    copy:
+      src: index.html
+      dest: /var/www/html/{{ myname }}
+
+  - name: Copy file with owner and permissions
+    copy:
+      src: index.html
+      dest: /var/www/html/
+

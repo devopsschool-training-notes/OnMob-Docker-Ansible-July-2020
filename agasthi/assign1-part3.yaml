@@ -1,0 +1,26 @@
+- name: Create a playbook where you should install a webserver into 2 OS type(Ubuntu and RHEL) with fact conditioning. and list out a directory which in “/etc” and display such as “This is a directory /file in /etc:-XXXx”
+#To be used Conditiong, looping, regiter and fact variable
+  hosts: ExcercisePart3
+  tasks:
+  - name: install the latest version of Apache
+    yum:
+      name: httpd
+      state: present
+    when: ansible_os_family == "RedHat"
+
+  - name: Install apache httpd  (state=present is optional)
+    apt:
+      name: apache2
+      state: present   
+      update_cache: yes
+    when: ansible_os_family == "Debian"
+
+  - name: list out directory
+    shell: "ls -d /etc/*/"
+    register: reg_output
+
+  - debug:
+      msg: This is a directory {{item}} in /etc
+    with_items:
+      - "{{ reg_output.stdout_lines }}"
+...

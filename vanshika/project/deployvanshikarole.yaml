@@ -1,0 +1,5 @@
+- name: master yaml file to deploy
+  hosts: weball
+  become: yes
+  roles: 
+     - /root/OnMob-Docker-Ansible-July-2020/vanshika/project/vanshikarole

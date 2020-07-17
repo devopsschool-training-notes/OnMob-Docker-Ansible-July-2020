@@ -1,0 +1,6 @@
+---
+# vars file for web
+
+    myname: rajutemp
+    dir: temp
+    port: 81

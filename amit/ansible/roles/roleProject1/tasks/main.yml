@@ -1,0 +1,68 @@
+---
+# tasks file for roleProject1
+
+  - name: install httpd
+    yum:
+      name: httpd
+      state: present
+    when: ansible_os_family == "RedHat"
+
+
+  - name: Create a directory if it does not exist
+    file:
+      path: /etc/httpd.conf/conf
+      state: directory
+      mode: '0755'
+
+  - name: Template a file to /etc/httpd.conf/conf/httpd.conf with port
+    template:
+      src: httpd.j2
+      dest: /etc/httpd.conf/conf/httpd.conf
+    notify: restart httpd
+
+  - name: Start service httpd, if not started
+    service:
+      name: httpd
+      state: started
+
+
+  - name: Create a directory if it does not exist
+    file:
+      path: /var/www/html
+      state: directory
+      mode: '0755'
+
+  - set_fact:
+      fact_var: samevalue
+
+
+
+  - name: list out directory
+    shell: "ps -ef"
+    register: reg_output
+
+  - name: template index
+    template:
+      src: index.j2
+      dest: /var/www/html/index.html
+
+  - name: add group onmo
+    group:
+      name: onmo
+
+  - name: add user deploy
+    user:
+      name: deploy
+      group: onmo
+
+  - name: install list of tools
+    yum: 
+      name: "{{item}}"
+      state: present
+    loop:
+      - git
+      - ntp
+      - vim
+
+
+

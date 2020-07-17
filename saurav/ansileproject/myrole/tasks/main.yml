@@ -1,0 +1,47 @@
+# tasks file for web
+
+  - name: install the latest version of Apache
+    yum:
+      name: httpd
+      state: present
+    when: ansible_os_family == "RedHat"
+
+  - name: Run a script with arguments (using 'cmd' parameter)
+    script:
+      cmd: deploy.sh
+
+  - name: Template a file to /etc/files.conf
+    template:
+      src: index.html.j2
+      dest: /var/www/html/index.html
+
+  - name: Template a file to /etc/files.conf
+    template:
+      src: httpd.conf.j2
+      dest: /etc/httpd/conf/httpd.conf
+    notify: restart service
+
+  - name: Start service httpd, if not started
+    service:
+      name: httpd
+      state: started
+
+  - name: Install common software requirements
+    apt: pkg={{ item }} state=present
+    with_items:
+       - git
+       - htop
+       - vim
+    when: ansible_os_family == "Debian"
+
+  - name: create a group called deploy
+    group:
+      name: onmob
+      state: present
+  - name: create a user deploy-user and add it to deploy group
+    user:
+      name: deploy
+      state: present
+      shell: /bin/bash
+      group: onmob
+

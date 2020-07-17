@@ -1,0 +1,3 @@
+---
+# vars file for project
+httpd_port: 8080

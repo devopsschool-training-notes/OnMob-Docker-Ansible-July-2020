@@ -1,0 +1,11 @@
+- name: Play for installing git and wget       
+  hosts: web
+  tasks:
+  - name: install git
+    yum:
+      name: git
+      state: present
+  - name: install wget
+    yum:
+      name: wget
+      state: present

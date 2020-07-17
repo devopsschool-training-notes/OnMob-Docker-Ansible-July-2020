@@ -1,0 +1,7 @@
+- name: Play for Create group deploy          
+  hosts: web
+  tasks:
+  - name: create deploy
+    group:
+      name: deploy
+      state: present

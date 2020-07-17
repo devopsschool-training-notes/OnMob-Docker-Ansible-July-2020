@@ -1,0 +1,9 @@
+- name: Start the Play
+  hosts: weball
+  vars_prompt:
+    - name: username
+      prompt: "What is your username?"
+      private: no
+  roles:
+    - vars
+

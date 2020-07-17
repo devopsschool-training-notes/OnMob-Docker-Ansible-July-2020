@@ -1,0 +1,8 @@
+---
+# handlers file for roleProject1
+
+  - name: restart httpd
+    service:
+      name: httpd
+      state: restarted
+

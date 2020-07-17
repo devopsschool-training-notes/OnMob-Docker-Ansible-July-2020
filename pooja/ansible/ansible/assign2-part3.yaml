@@ -1,0 +1,23 @@
+- name: assign2part3
+  hosts: dev,qa
+
+  tasks:
+  - name: install the latest version of Apache
+    yum:
+      name: httpd
+      state: present
+ 
+  - name: Template a file to /etc/files.conf
+    template:
+      src: httpd.conf.j2
+      dest: /etc/httpd/conf/httpd.conf
+
+  - name: copy index.html
+    copy:
+      src: index.html
+      dest: /var/www/html      
+
+  - name: restart service httpd, if not started
+    service:
+      name: httpd
+      state: restarted

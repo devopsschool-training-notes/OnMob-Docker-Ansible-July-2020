@@ -1,0 +1,30 @@
+- name: Start the Play
+  hosts: weball
+  vars:
+    myname: Vanshika
+
+  tasks:
+  - name: install the latest version of Apache
+    yum:
+      name: httpd
+      state: present
+    when: ansible_os_family == "RedHat"
+  
+  - name: install latest apache
+    apt:
+      name: apache2
+      state: latest
+    when: ansible_os_family =="Debian"
+
+  - name: Copy file with owner and permissions
+    copy:
+      src: index.html
+      dest: /var/www/html/
+
+  - name: display data 
+    find:
+      paths: /var/www/html/
+      recurse: no
+      file_type: file
+    register: files
+  - debug: var=files.stdout_lines

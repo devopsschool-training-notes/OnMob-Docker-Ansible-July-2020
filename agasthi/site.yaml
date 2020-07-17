@@ -1,0 +1,10 @@
+- name: Start the Play
+  hosts: dev
+  vars:
+    var_text: 'This is from site.yaml'
+#    script_output: "script"
+  vars_prompt:
+    - name: "var_prompt_text"
+      prompt: "Enter a prompt var value" 
+  roles:
+    - project 

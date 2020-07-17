@@ -1,0 +1,17 @@
+[ExcercisePart3]
+13.233.104.206
+13.235.9.49 ansible_user=ubuntu
+[dev]
+13.127.163.216
+
+[qa]
+13.127.82.113
+
+[ubuntu]
+13.235.9.49 ansible_user=ubuntu
+
+[all:vars]
+ansible_user=centos 
+ansible_ssh_private_key_file=key/remote.pem 
+ansible_become=yes
+msg='message from inventry'

@@ -1,0 +1,36 @@
+---
+# tasks file for project
+- name: Install httpd
+  yum: 
+    name: httpd
+    state: present
+  when: ansible_os_family == "RedHat"
+
+- name: Template a file for httpd conf
+  template:
+    src: httpd.conf.j2
+    dest: /etc/httpd/conf/httpd.conf
+  notify: httpd restart
+- name: Run a script in remote system 
+  script: 
+    cmd: agasthi.sh
+  register: script_output
+- name: write debug msg in var
+  debug:
+    var: script_output
+- name: copy index file
+  template:
+    src: index.html.j2
+    dest: /var/www/html/index.html
+
+- name: create a group
+  group: 
+    name: deploy
+- name: create a user
+  user:
+    name: deloitte
+    group: deploy
+- name: install a git, ntp and vim tools
+  yum:
+    name: git,ntp,vim
+    state: present

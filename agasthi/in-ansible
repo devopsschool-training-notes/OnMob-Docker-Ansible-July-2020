@@ -1,3 +1,6 @@
+[ExcercisePart3]
+13.233.104.206
+13.235.9.49 ansible_user=ubuntu
 [web]
 13.232.227.88
 13.235.9.49 ansible_user=ubuntu

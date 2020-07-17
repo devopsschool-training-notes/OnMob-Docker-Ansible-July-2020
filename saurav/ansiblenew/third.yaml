@@ -1,0 +1,6 @@
+
+- name: Start the Play
+  hosts: weball
+  tasks:
+  - debug:
+      msg: Hello {{ rootname }} has age {{ rootage }}

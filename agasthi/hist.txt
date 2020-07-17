@@ -998,3 +998,1003 @@
  1049  ansible-playbook -i in-ansible playbook1.yaml 
  1050  vim playbook1.yaml 
  1051  history >hist.txt
+  520  rm play4.yaml
+  521  vi play4.yaml
+  522  ansible-playbook play4.yaml -i inventory --syntax-check
+  523  ansible-playbook play4.yaml -i inventory -C
+  524  vi play4.yaml
+  525  ansible-playbook play4.yaml -i inventory -C
+  526  ansible-playbook play4.yaml -i inventory
+  527  cd ..
+  528  cd ..
+  529  cd agasthi/
+  530  ls
+  531  vi play5.yaml
+  532  cd ..
+  533  cd prerana/ansible/
+  534  vi play5.yaml
+  535  ansible-playbook play5.yaml -i inventory --syntax-check
+  536  ansible-playbook play5.yaml -i inventory -C
+  537  ansible-playbook play5.yaml -i inventory
+  538  ls
+  539  cd ..
+  540  cd ..
+  541  cd agasthi/
+  542  ls
+  543  vi play7.yaml
+  544  cd ..
+  545  cd prerana/ansible/
+  546  ls
+  547  vi play7.yaml
+  548  ansible-playbook play7.yaml -i inventory --syntax-check
+  549  ls
+  550  ---
+  551  - name: Write a Ansible Playbook to install a package called “git”, “wget”.
+  552    hosts: all
+  553    tasks:
+  554    - name: Install git and wget
+  555      yum:  name=git,wget state=present
+  556  ...
+  557  ansible-playbook play7.yaml -i inventory --syntax-check
+  558  vi play7.yaml 
+  559  ansible-playbook play7.yaml -i inventory --syntax-check
+  560  vi play7.yaml
+  561  ansible-playbook play7.yaml -i inventory --syntax-check
+  562  ansible-playbook play7.yaml -i inventory -C
+  563  ansible-playbook play7.yaml -i inventory
+  564  vi play8.yaml
+  565  ansible-playbook play8.yaml -i inventory --syntax-check
+  566  ansible-playbook play7.yaml -i inventory -C
+  567  ansible-playbook play7.yaml -i inventory
+  568  ansible-playbook play8.yaml -i inventory -C
+  569  ansible-playbook play8.yaml -i inventory
+  570  cd ../..
+  571  cd agasthi/
+  572  ls
+  573  vi play8.yaml
+  574  cd ..
+  575  cd prerana/
+  576  ls
+  577  cd ansible/
+  578  ls
+  579  vi play9.yaml
+  580  ansible-playbook play9.yaml -i inventory --syntax-check
+  581  ansible-playbook play9.yaml -i inventory -C
+  582  ansible-playbook play9.yaml -i inventory
+  583  cd ..
+  584  cd ..
+  585  cd agasthi/
+  586  ls
+  587  vi play9.yaml
+  588  cd ..
+  589  cd prerana/ansible/
+  590  ls
+  591  vi play10.yaml
+  592  ansible-playbook play10.yaml -i inventory --syntax-check
+  593  ls
+  594  rm play10.yaml
+  595  vi play10.yaml
+  596  ansible-playbook play10.yaml -i inventory --syntax-check
+  597  ansible-playbook play10.yaml -i inventory -C
+  598  ansible-playbook play10.yaml -i inventory
+  599  cd /root/OnMob-Docker-Ansible-July-2020/
+  600  ll
+  601  mkdir agasthi
+  602  cd agasthi/
+  603  mkdir key
+  604  cp ../rajesh/ansible/remote.pem key/
+  605  clear
+  606  vi inventory
+  607  ansible all -i web1 -m yum -a"name=nginx state=present" -u centos --key-file=key/remote.pem -b
+  608  ansible web1 -i inventory -m yum -a"name=nginx state=present" -u centos --key-file=key/remote.pem -b
+  609  ansible web1 -i inventory -m yum -a"name=nginx state=installed" -u centos --key-file=key/remote.pem -b
+  610  ansible web1 -i inventory -m lineinfile -a"create=yes path=/usr/share/nginx/index.html line='it is index'"
+  611  vim inventory 
+  612  vi inventory 
+  613  ansible web1 -i inventory -m lineinfile -a"create=yes path=/usr/share/nginx/index.html line='it is index'" -u centos --key-file=key/remote.pem -b
+  614  ansible web1 -i inventory -m lineinfile -a"create=yes path=/usr/share/nginx/hello.html line='it is index'" -u centos --key-file=key/remote.pem -b
+  615  ansible web1 -i inventory -m lineinfile -a"create=yes path=/usr/share/nginx/html/hello.html line='it is index'" -u centos --key-file=key/remote.pem -b
+  616  vim inventory 
+  617  viinventory 
+  618  vi inventory 
+  619  ll key/
+  620  ansible web1 -i inventory -m lineinfile -a"create=yes path=/var/www/html/hello.html line='it is index'" -u centos --key-file=key/remote.pem -b
+  621  ansible web -i inventory -m lineinfile -a"create=yes path=/var/www/html/web.html line='it is index'" -u centos --key-file=key/remote.pem -b
+  622  ansible web -i inventory -m lineinfile -a"create=yes path=/var/www/html/hello.html line='it is index'" -u centos --key-file=key/remote.pem -b
+  623  ansible db -i inventory -m yum -a"name=mysql state=installed" -u centos --key-file=key/remote.pem -b
+  624  ansible db -i inventory -m service -a"name=mysql state=started" -u centos --key-file=key/remote.pem -b
+  625  ansible db -i inventory -m yum -a"name=mysql state=installed" -u centos --key-file=key/remote.pem -b
+  626  vi inventory 
+  627  touch play1.yaml
+  628  touch play2.yaml
+  629  touch play3.yaml
+  630  touch play4.yaml
+  631  touch play5.yaml
+  632  touch play6.yaml
+  633  touch play7.yaml
+  634  touch play8.yaml
+  635  touch play9.yaml
+  636  vim play1.yaml 
+  637  vi play1.yaml 
+  638  cat ../rajesh/ansible/play1.yaml 
+  639  vi play1.yaml 
+  640  vim inventory 
+  641  vi inventory 
+  642  vim ../rajesh/in
+  643  vim ../rajesh/ansible/inventory 
+  644  vi ../rajesh/ansible/inventory 
+  645  vi inventory 
+  646  vim play1.yaml 
+  647  vi play1.yaml 
+  648  ansible-playbook play1.yaml -i inventory --syntax-check
+  649  vi play1.yaml 
+  650  ansible-playbook play1.yaml -i inventory --syntax-check
+  651  vim inventory 
+  652  vi inventory 
+  653  vi inventory 
+  654  ansible-playbook play1.yaml -i inventory --syntax-check
+  655  vi inventory
+  656  vi play1.yaml 
+  657  vi inventory
+  658  ansible-playbook play1.yaml -i inventory --syntax-check
+  659  vi inventory
+  660  ansible-playbook play1.yaml -i inventory --syntax-check
+  661  ansible-playbook play1.yaml -i inventory -c
+  662  ansible-playbook play1.yaml -i inventory --C
+  663  ansible-playbook play1.yaml -i inventory -C
+  664  ansible-playbook play1.yaml -i inventory
+  665  vim play1.yaml 
+  666  vi play1.yaml 
+  667  ansible-playbook play1.yaml -i inventory
+  668  cp play1.yaml play2.yaml 
+  669  vi play2.yaml 
+  670  ansible-playbook play2.yaml -i inventory --syntax-check
+  671  ansible-playbook play2.yaml -i inventory
+  672  cp play1.yaml play3.yaml 
+  673  vi play3.yaml 
+  674  ansible-playbook play3.yaml -i inventory --syntax-check
+  675  ansible-playbook play3.yaml -i inventory
+  676  cp play3.yaml play4.yaml 
+  677  vi play4.yaml 
+  678  vi play3.yaml 
+  679  cd ../prerana/
+  680  ll
+  681  cd agasthi/
+  682  ll
+  683  cd ..
+  684  mv agasthi/ ansible
+  685  cd ansible/
+  686  ll
+  687  vi play1.yaml 
+  688  ansible-playbook play1.yaml -i inventory --syntax-check
+  689  ansible-playbook play1.yaml -i inventory -C
+  690  vi inventory 
+  691  cp ../../agasthi/inventory .
+  692  cd ../../agasthi/
+  693  ll
+  694  vim play4.yaml 
+  695  ansible-playbook play4.yaml -i inventory --syntax-check
+  696  ansible-playbook play4.yaml -i inventory
+  697  vim play4.yaml 
+  698  ansible-playbook play4.yaml -i inventory
+  699  vim play4.yaml 
+  700  ansible-playbook play4.yaml -i inventory -C
+  701  vim play4.yaml 
+  702  cp play4.yaml play5.yaml 
+  703  vim play5.yaml 
+  704  ansible-playbook play5.yaml -i inventory --syntax-check
+  705  ansible-playbook play5.yaml -i inventory -C
+  706  ansible-playbook play5.yaml -i inventory
+  707  cp play6.yaml play6.yaml 
+  708  cp play5.yaml play6.yaml 
+  709  vim play6.yaml 
+  710  cp play3.yaml play6.yaml 
+  711  vim play6.yaml 
+  712  ansible-playbook play6.yaml -i inventory --syntax-check
+  713  cp play6.yaml play7.yaml 
+  714  ansible-playbook play7.yaml -i inventory -C
+  715  ansible-playbook play7.yaml -i inventory
+  716  cp play6.yaml play8.yaml 
+  717  vim play8.yaml 
+  718  pwd
+  719  vim play8.yaml 
+  720  ansible-playbook play8.yaml -i inventory --syntax-check
+  721  ansible-playbook play8.yaml -i inventory -C
+  722  vim play8.yaml 
+  723  ansible-playbook play8.yaml -i inventory -C
+  724  vim play8.yaml 
+  725  ansible-playbook play8.yaml -i inventory -C
+  726  ping 13.126.255.240
+  727  vim inventory 
+  728  vim inventory 
+  729  ansible-playbook play8.yaml -i inventory -C
+  730  vim play7.yaml 
+  731  ansible-playbook play8.yaml -i inventory
+  732  ansible-playbook play7.yaml -i inventory
+  733  ansible-playbook play8.yaml -i inventory
+  734  vim play8.yaml 
+  735  vim inventory 
+  736  ping 13.233.28.2
+  737  ansible-playbook play8.yaml -i inventory
+  738  rm -rf play6.yaml 
+  739  rm -rf play9.yaml 
+  740  cat play* >> play9.yaml
+  741  vim play9.yaml 
+  742  ansible-playbook play9.yaml -i inventory -C
+  743  vim play9.yaml 
+  744  ansible-playbook play9.yaml -i inventory -C
+  745  ansible -i 13.233.26.103 -m reboot -a"msg="reboot by agasthi" reboot_timeout=10"
+  746  ansible -i 13.233.26.103 -m reboot -a"msg='reboot by agasthi' reboot_timeout=10"
+  747  ansible 13.233.26.103 -m reboot -a"msg='reboot by agasthi' reboot_timeout=10"
+  748  vim inventory 
+  749  ansible all -i myserver -m reboot -a"msg='reboot by agasthi' reboot_timeout=10"
+  750  vim inventory 
+  751  ansible myserver -i inventory -m reboot -a"msg='reboot by agasthi' reboot_timeout=10"
+  752  cp play5.yaml play6.yaml
+  753  vim play6.yaml 
+  754  ansible-playbook play6.yaml -i inventory -C
+  755  vim play9.yaml 
+  756  rm -rf play9.yaml 
+  757  cat play* >> play9.yaml
+  758  vim play9.yaml 
+  759  vim play4.yaml.yaml 
+  760  clear
+  761  ansible -h
+  762  clear
+  763  ansible -i 35.154.85.209, -m yum -a"name=httpd state=present"
+  764  clear
+  765  ansible all -i 35.154.85.209, -m yum -a"name=httpd state=present"
+  766  clear
+  767  ssh centos@35.154.85.209
+  768  ssh centos@35.154.85.209
+  769  ssh centos@35.154.85.209
+  770  clear
+  771  ls
+  772  clear
+  773  ansible all -i 35.154.85.209, -m yum -a"name=httpd state=present"
+  774  vi /etc/ansible/ansible.cfg
+  775  clear
+  776  ls
+  777  ansible all -i 35.154.85.209, -m yum -a"name=httpd state=present"
+  778  ansible all -i 35.154.85.209, -m yum -a"name=httpd state=present"
+  779  clear
+  780  ansible all -i 35.154.85.209, -m yum -a"name=httpd state=present"
+  781  clear
+  782  ansible -h
+  783  clear
+  784  ansible all -i 35.154.85.209, -m yum -a"name=httpd state=present"
+  785  clear
+  786  cd
+  787  pwd
+  788  git
+  789  yum install git -y
+  790  clear
+  791  ls
+  792  pwd
+  793  pwd
+  794  git clone https://github.com/devopsschool-training-notes/OnMob-Docker-Ansible-July-2020
+  795  clear
+  796  ls
+  797  cd OnMob-Docker-Ansible-July-2020
+  798  ls
+  799  cd rajesh/
+  800  ls
+  801  clear
+  802  lsl
+  803  lear
+  804  clear
+  805  ls
+  806  mkdir ansible
+  807  cd ansible/
+  808  ls
+  809  vi remote.pem
+  810  chmod 600 remote.pem 
+  811  clear
+  812  ls
+  813  cp ../../../index.html .
+  814  clear
+  815  ls
+  816  clear
+  817  ansible all -i 35.154.85.209, -m yum -a"name=httpd state=present" -u centos --key-file=remote.pem -b
+  818  ansible all -i 35.154.85.209, -m copy -a"src=index.html dest=/var/www/html" -u centos --key-file=remote.pem -b
+  819  clear
+  820  ansible all -i 35.154.85.209, -m service -a"name=httpd state=started" -u centos --key-file=remote.pem -b
+  821  clear
+  822  clear
+  823  ansible all -i 35.154.85.209,13.234.19.14,15.206.169.2, -m yum -a"name=httpd state=present" -u centos --key-file=remote.pem -b
+  824  ansible all -i 35.154.85.209,13.234.19.14,15.206.169.2, -m copy -a"src=index.html dest=/var/www/html" -u centos --key-file=remote.pem -b
+  825  clear
+  826  ansible all -i 35.154.85.209,13.234.19.14,15.206.169.2, -m service -a"name=httpd state=started" -u centos --key-file=remote.pem -b
+  827  clear
+  828  ls
+  829  vi inventory
+  830  clear
+  831  ansible all -i inventory -m yum -a"name=httpd state=present" -u centos --key-file=remote.pem -b
+  832  vi index.html 
+  833  ansible all -i inventory  -m copy -a"src=index.html dest=/var/www/html" -u centos --key-file=remote.pem -b
+  834  clear
+  835  ansible all -i inventory  -m service -a"name=httpd state=started" -u centos --key-file=remote.pem -b
+  836  clear
+  837  ls
+  838  vi inventory 
+  839  clear
+  840  ansible web -i inventory -m yum -a"name=httpd state=present" -u centos --key-file=remote.pem -b
+  841  clear
+  842  ansible web -i inventory -m yum -a"name=httpd state=present" -u centos --key-file=remote.pem -b
+  843  clear
+  844  ansible db -i inventory  -m copy -a"src=index.html dest=/var/www/html" -u centos --key-file=remote.pem -b
+  845  clear
+  846  ansible all -i inventory  -m service -a"name=httpd state=started" -u centos --key-file=remote.pem -b
+  847  clear
+  848  more /etc/ansible/ansible.cfg 
+  849  clear
+  850  more /etc/ansible/ansible.cfg  | grep fork
+  851  vi inventory 
+  852  clear
+  853  ansible weball -i inventory -m yum -a"name=httpd state=present" -u centos --key-file=remote.pem -b
+  854  ansible web1,web2 -i inventory  -m copy -a"src=index.html dest=/var/www/html" -u centos --key-file=remote.pem -b
+  855  clear
+  856  more inventory 
+  857  vi inventory 
+  858  ansible weball -i inventory -m yum -a"name=httpd state=present" -u centos --key-file=remote.pem -b
+  859  clear
+  860  more inventory 
+  861  clear
+  862  ansible weball -i inventory -m yum -a"name=httpd state=present" -u centos --key-file=remote.pem -b
+  863  clear
+  864  ls
+  865  pwd
+  866  cd ..
+  867  ls
+  868   cd ..
+  869  ls
+  870  pwd
+  871  ls
+  872  clear
+  873  ls
+  874  cd rajesh/
+  875  ls
+  876  cd ansible/
+  877  ls
+  878  vi inventory 
+  879  ansible weball -i inventory -m yum -a"name=httpd state=present" -u centos --key-file=remote.pem -b
+  880  clear
+  881  ls
+  882  pwd
+  883  vi play1.yaml
+  884  clear
+  885  ansible-playbook -h
+  886  clear
+  887  ls
+  888  ansible-playbook play1.yaml -i inventory --syntax-check
+  889  vi inventory 
+  890  ls
+  891  vi play1.yaml 
+  892  clear
+  893  ansible-playbook play1.yaml -i inventory --syntax-check
+  894  ansible-playbook play1.yaml -i inventory --C
+  895  ansible-playbook play1.yaml -i inventory -C
+  896  clear
+  897  ansible-playbook play1.yaml -i inventory 
+  898  clear
+  899  vi index.html 
+  900  ansible-playbook play1.yaml -i inventory 
+  901  clear
+  902  history
+  903  clear
+  904  ls
+  905  clear
+  906  ansible -h
+  907  clear
+  908  ls
+  909  cd ..
+  910  ls
+  911  cd ..
+  912  pwd
+  913  git pull origin master
+  914  git add .
+  915  git commit -m"adding"
+  916  clear
+  917  git push origin master
+  918  git add .
+  919  git pull origin master
+  920  git add --all
+  921  git commit -m"adding"
+  922  git push origin master
+  923  clear
+  924  sl
+  925  cd
+  926  cd .ssh/
+  927  ls
+  928  watch ls
+  929  ls
+  930  rm -rf known_hosts 
+  931  watch ls
+  932  cd
+  933  ls
+  934  clear
+  935  ls
+  936  cd
+  937  ls
+  938  cd .ssh/
+  939  ls
+  940  rm -rf known_hosts 
+  941  watch ls
+  942  cd /root
+  943  ll
+  944  cd OnMob-Docker-Ansible-July-2020
+  945  ll
+  946  cd agasthi
+  947  ll
+  948  vim play7.yaml
+  949  cd ../sushma/
+  950  ll
+  951  cd ansible
+  952  ll
+  953  vim sush6.yaml
+  954  ansible-playbook sush6.yaml -i inventory --syntax-check
+  955  ansible-playbook sush6.yaml -i inventory -C
+  956  ansible-playbook sush6.yaml -i inventory
+  957  ll
+  958  vim sush7.yaml
+  959  ansible-playbook sush7.yaml -i inventory --syntax-check
+  960  ansible-playbook sush7.yaml -i inventory -C
+  961  vim sush7.yaml 
+  962  ansible-playbook sush7.yaml -i inventory -C
+  963  vim sush7.yaml 
+  964  ansible-playbook sush7.yaml -i inventory -C
+  965  cd ../../agasthi/
+  966  ll
+  967  vim play8.yaml
+  968  cd -
+  969  vim sush7.yaml 
+  970  ansible-playbook sush7.yaml -i inventory -C
+  971  cd -
+  972  ll
+  973  vim play8.yaml
+  974  cd -
+  975  vim sush7.yaml 
+  976  ansible-playbook sush7.yaml -i inventory -C
+  977  ansible-playbook sush7.yaml -i inventory
+  978  vim sush7.yaml 
+  979  cd /opt
+  980  ll
+  981  sushma
+  982  mkdir sushma
+  983  vim sush7.yaml 
+  984  cd -
+  985  vim sush7.yaml 
+  986  ansible-playbook sush7.yaml -i inventory
+  987  ll
+  988  vim sush8.yaml
+  989  vim sush8.yaml
+  990  ansible-playbook sush8.yaml -i inventory  --syntax-check
+  991  ansible-playbook sush8.yaml -i inventory  -C
+  992  ansible-playbook sush8.yaml -i inventory
+  993  vim sush.yaml
+  994  ansible-playbook sush.yaml -i inventory  --syntax-check
+  995  ansible-playbook sush.yaml -i inventory  -C
+  996  ansible-playbook sush.yaml -i inventory
+  997  ll
+  998  cd /root/OnMob-Docker-Ansible-July-2020/agasthi/
+  999  l
+ 1000  ls
+ 1001  vim in-ansible
+ 1002  mkdir group_var
+ 1003  mkdir host_var
+ 1004  cd group_var/
+ 1005  vim centos
+ 1006  vim 13.235.9.49
+ 1007  vim ../../rajesh/ansible/
+ 1008  vim 13.235.9.49 
+ 1009  vim ../../rajesh/ansible/
+ 1010  mkdir ../host_vars/
+ 1011  mv 13.235.9.49 ../host_var/
+ 1012  clear
+ 1013  vim centos
+ 1014  vim ../host_var/13.235.9.49 
+ 1015  cd ..
+ 1016  vim in-ansible 
+ 1017  pwd
+ 1018  l
+ 1019  ll
+ 1020  pwd
+ 1021  ll host_var
+ 1022  ll ../rajesh/
+ 1023  ll ../rajesh/ansible/
+ 1024  mv host_var/13.235.9.49 host_vars/
+ 1025  rm -rf host_var
+ 1026  ll
+ 1027  pwd
+ 1028  vim playbook1.yaml
+ 1029  vim play4.yaml
+ 1030  vim play5.yaml 
+ 1031  vim playbook1.yaml 
+ 1032  ansible -i in-ansible playbook1.yaml 
+ 1033  ansible-playbook -i in-ansible playbook1.yaml 
+ 1034  vim in-ansible 
+ 1035  vim inventory 
+ 1036  vim in-ansible 
+ 1037  ansible-playbook -i in-ansible playbook1.yaml 
+ 1038  vim playbook1.yaml 
+ 1039  ansible-playbook -i in-ansible playbook1.yaml 
+ 1040  vim playbook1.yaml 
+ 1041  ansible-playbook -i in-ansible playbook1.yaml 
+ 1042  ll key/
+ 1043  ping 13.233.104.206
+ 1044  cd group_var/
+ 1045  ll
+ 1046  cp centos all
+ 1047  cd ..
+ 1048  clear
+ 1049  ansible-playbook -i in-ansible playbook1.yaml 
+ 1050  vim playbook1.yaml 
+ 1051  history >hist.txt
+ 1052  vim hist.txt 
+ 1053  cd ../rajesh/
+ 1054  cd ansible/
+ 1055  vim inventory
+ 1056  cd group_vars/
+ 1057  ll
+ 1058  vim all 
+ 1059  cd ../../ag
+ 1060  cd ../../
+ 1061  cd ../agasthi/
+ 1062  ll
+ 1063  cd group_var/
+ 1064  vim all 
+ 1065  vim ../in-ansible 
+ 1066  cd ..
+ 1067  vim inventory 
+ 1068  vim in-ansible 
+ 1069  ansible-playbook -i in-ansible playbook1.yaml 
+ 1070  vim host_vars/13.235.9.49 
+ 1071  vim in-ansible 
+ 1072  cp in-ansible ../prerana/
+ 1073  ll ../prerana/
+ 1074  cp in-ansible ../prerana/ansible/
+ 1075  ll ../prerana/ansible/
+ 1076  vim playbook2.yaml 
+ 1077  vim masterpb.yaml
+ 1078  ansible-playbook -i in-ansible playbook2.yaml 
+ 1079  vim playbook2.yaml 
+ 1080  ansible-playbook -i in-ansible playbook2.yaml 
+ 1081  ansible-playbook -i in-ansible masterpb.yaml 
+ 1082  vim masterpb.yaml 
+ 1083  ansible-playbook -i in-ansible masterpb.yaml 
+ 1084  vim masterpb.yaml 
+ 1085  vim masterpb.yaml 
+ 1086  ansible-playbook -i in-ansible masterpb.yaml 
+ 1087  cp playbook1.yaml var_pb.yaml
+ 1088  vim var_pb.yaml 
+ 1089  ansible-playbook -i in-ansible var_pb.yaml 
+ 1090  vim in-ansible 
+ 1091  vim in-ansible 
+ 1092  vim in-ansible 
+ 1093  cp in-ansible ../prerana/ansible/
+ 1094  ll ../prerana/ansible/
+ 1095  cp var_pb.yaml ../prerana/ansible/var-pb.yaml
+ 1096  vim ../prerana/ansible/var-pb.yaml
+ 1097  cp var_pb.yaml var_ext.yaml
+ 1098  vim ../prerana/ansible/masterplaybook.yaml 
+ 1099  vim ../prerana/ansible/inventory1
+ 1100  vim ../prerana/ansible/inventory1
+ 1101  vim ../prerana/ansible/inventory1
+ 1102  vim playbook1.yaml
+ 1103  vim ../prerana/ansible/inventory1
+ 1104  cd ../prerana/ansible/
+ 1105  ansible-playbook -i inventory1 masterplaybook.yaml 
+ 1106  vim /root/OnMob-Docker-Ansible-July-2020/prerana/ansible/playbook2.yaml
+ 1107  ansible-playbook -i inventory1 masterplaybook.yaml 
+ 1108  vim 
+ 1109  vim /root/OnMob-Docker-Ansible-July-2020/prerana/ansible/playbook1.yaml
+ 1110  ansible-playbook -i inventory1 masterplaybook.yaml 
+ 1111  vim inventory1 
+ 1112  cp in-ansible inventory1 
+ 1113  ansible-playbook -i inventory1 masterplaybook.yaml 
+ 1114  rm -rf in-ansible 
+ 1115  vim inventory1 
+ 1116  cd ../../agasthi/
+ 1117  clear
+ 1118  cp var_pb.yaml var_invt.yaml
+ 1119  vim var_invt.yaml
+ 1120  vim in-ansible 
+ 1121  vim ../prerana/ansible/inventory1 
+ 1122  vim in-ansible 
+ 1123  ansible-playbook -i in-ansible var_invt.yaml 
+ 1124  vim host_vars/13.235.9.49 
+ 1125  vim ../rajesh/ansible/host_vars/13.127.163.216 
+ 1126  vim host_vars/13.235.9.49 
+ 1127  cp host_vars/13.235.9.49 ../prerana/ansible/hosts_vars/
+ 1128  ansible-playbook -i in-ansible var_invt.yaml 
+ 1129  vim var_invt.yaml
+ 1130  vim ../rajesh/ansible/var2.yaml 
+ 1131  vim ../rajesh/ansible/var3.yaml 
+ 1132  vim ../rajesh/ansible/inventory
+ 1133  vim in-ansible 
+ 1134  vim in-ansible 
+ 1135  ansible-playbook -i in-ansible var_invt.yaml 
+ 1136  vim var_invt.yaml 
+ 1137  ansible-playbook -i in-ansible var_invt.yaml 
+ 1138  vim var_invt.yaml 
+ 1139  ansible-playbook -i in-ansible var_invt.yaml 
+ 1140  vim in-ansible 
+ 1141  vim var_invt.yaml 
+ 1142  ll host_vars/
+ 1143  ll group_var/
+ 1144  mv group_var/ group_vars/
+ 1145  vim var_invt.yaml 
+ 1146  ansible-playbook -i in-ansible var_invt.yaml 
+ 1147  vim var_invt.yaml 
+ 1148  ansible-playbook -i in-ansible var_invt.yaml 
+ 1149  vim var_invt.yaml 
+ 1150  ansible-playbook -i in-ansible var_pb.yaml 
+ 1151  vim in-ansible 
+ 1152  vim group_vars/centos 
+ 1153  vim host_vars/13.235.9.49 
+ 1154  ansible-playbook -i in-ansible var_pb.yaml 
+ 1155  vim in-ansible 
+ 1156  ansible-playbook -i in-ansible var_pb.yaml 
+ 1157* 
+ 1158  vim var_invt.yaml 
+ 1159  ansible-playbook -i in-ansible var_pb.yaml 
+ 1160  ll
+ 1161  ll key/
+ 1162  vim in-ansible 
+ 1163  vim in-ansible 
+ 1164  ansible-playbook -i in-ansible var_pb.yaml 
+ 1165  vim var_pb.yaml
+ 1166  ansible-playbook -i in-ansible var_pb.yaml 
+ 1167  vim var_pb.yaml
+ 1168  ansible-playbook -i in-ansible var_pb.yaml -vvvv
+ 1169  vim /root/OnMob-Docker-Ansible-July-2020/agasthi/in-ansible
+ 1170  ansible-playbook -i in-ansible var_pb.yaml -vvvv
+ 1171  vim /root/OnMob-Docker-Ansible-July-2020/agasthi/in-ansible
+ 1172  ansible-playbook -i in-ansible var_pb.yaml -vvvv
+ 1173  vim /root/OnMob-Docker-Ansible-July-2020/agasthi/in-ansible
+ 1174  ansible-playbook -i in-ansible var_pb.yaml -vvvv
+ 1175  vim var_pb.yaml
+ 1176  ll group_vars/
+ 1177  vim group_vars/all 
+ 1178  vim group_vars/all 
+ 1179  ansible-playbook -i in-ansible var_pb.yaml -vvvv
+ 1180  vim group_vars/all 
+ 1181  ansible-playbook -i in-ansible var_pb.yaml -vvvv
+ 1182  vim ../rajesh/ansible/group_vars/all 
+ 1183  vim group_vars/all 
+ 1184  ansible-playbook -i in-ansible var_pb.yaml -vvvv
+ 1185  vim group_vars/all 
+ 1186  vim group_vars/all 
+ 1187  ansible-playbook -i in-ansible var_pb.yaml -vvvv
+ 1188  vim group_vars/centos 
+ 1189  ansible-playbook -i in-ansible var_pb.yaml -vvvv
+ 1190  cp ../prerana/ansible/inventory in-ansible 
+ 1191  vim in-ansible 
+ 1192  vim in-ansible 
+ 1193  vim in-ansible 
+ 1194  ansible-playbook -i in-ansible var_pb.yaml
+ 1195  vim in-ansible 
+ 1196  ansible-playbook -i in-ansible var_pb.yaml
+ 1197  vim in-ansible 
+ 1198  ansible-playbook -i in-ansible var_pb.yaml
+ 1199  vim ../rajesh/ansible/inventory
+ 1200  vim in-ansible 
+ 1201  vim in-ansible 
+ 1202  ansible-playbook -i in-ansible var_pb.yaml
+ 1203  ansible-playbook -i in-ansible var_invt.yaml
+ 1204  vim group_vars/all 
+ 1205  mv group_vars/all ubuntu
+ 1206  ansible-playbook -i in-ansible var_invt.yaml
+ 1207  vim group_vars/centos 
+ 1208  ll group_vars/
+ 1209  rm -rf ubuntu 
+ 1210  vim in-ansible 
+ 1211  ansible-playbook -i in-ansible var_invt.yaml
+ 1212  vim var_invt.yaml 
+ 1213  vim var_invt.yaml 
+ 1214  ansible-playbook -i in-ansible var_invt.yaml
+ 1215  vim var_invt.yaml 
+ 1216  ansible-playbook -i in-ansible var_pb.yaml 
+ 1217  vim var_invt.yaml 
+ 1218  ansible-playbook -i in-ansible var_invt.yaml
+ 1219  grep "Group Centos" .
+ 1220  grep "Group Centos" *.*
+ 1221  grep -R "Group Centos" *.*
+ 1222  grep -r "Group Centos" *.*
+ 1223  ll
+ 1224  ll group_vars/
+ 1225  vim group_vars/centos 
+ 1226  ansible-playbook -i in-ansible var_invt.yaml
+ 1227  vim var_invt.yaml
+ 1228  vim in-ansible 
+ 1229  ll group_vars/
+ 1230  grep "centos" in-ansible 
+ 1231  vim var-file.yaml
+ 1232  vim ../rajesh/ansible/ext-var.yaml 
+ 1233  vim var-file.yaml
+ 1234  cp var_invt.yaml var_ext.yaml
+ 1235  vim var_ext.yaml
+ 1236  ansible-playbook -i in-ansible var_ext.yaml
+ 1237  vim var_invt.yaml 
+ 1238  vi in-ansible 
+ 1239  ll group_vars/
+ 1240  ll host_vars/
+ 1241  ansible-playbook -i in-ansible var_invt.yaml
+ 1242  vim in-ansible 
+ 1243  pwd
+ 1244  cp group_vars/centos group_vars/web
+ 1245  vim group_vars/web
+ 1246  ansible-playbook -i in-ansible var_invt.yaml
+ 1247  vim in-ansible 
+ 1248  vim in-ansible 
+ 1249  ansible-playbook -i in-ansible var_invt.yaml
+ 1250  rm -rf group_vars/web 
+ 1251  ansible-playbook -i in-ansible var_invt.yaml
+ 1252  mv var_invt.yaml var_invt_group_host.yaml 
+ 1253  vim var_fact.yaml
+ 1254  cp var_invt.yaml var_fact.yaml
+ 1255  cp var_invt_group_host.yaml var_fact.yaml
+ 1256  vim var_fact.yaml 
+ 1257  vim playbook1.yaml 
+ 1258  vim var_fact.yaml 
+ 1259  cd ../prerana/ansible/go
+ 1260  cd ../prerana/ansible/group_vars/
+ 1261  vim web 
+ 1262  vim web 
+ 1263  cd -
+ 1264  vim var_fact.yaml 
+ 1265  ansible-playbook -i in-ansible var_fact.yaml
+ 1266  vim var_fact.yaml
+ 1267  ansible-playbook -i in-ansible var_fact.yaml
+ 1268  vim var_fact.yaml
+ 1269  ansible-playbook -i in-ansible var_fact.yaml
+ 1270* viansible-playbook -i in-ansible var_fact.yaml
+ 1271  vim var_fact.yaml
+ 1272  ansible-playbook -i in-ansible var_fact.yaml
+ 1273  vim assign1-part3.yaml
+ 1274  vim in-ansible 
+ 1275  vim assign1-part3.yaml
+ 1276  ll /etc/
+ 1277  #ansible-playbook assign1-part3.yaml -i in-ansible 
+ 1278  vim in-ansible 
+ 1279  vim assign1-part3.yaml
+ 1280  ansible-playbook assign1-part3.yaml -i in-ansible assign1-part3.yaml
+ 1281  ansible-playbook -i in-ansible assign1-part3.yaml
+ 1282  vim assign1-part3.yaml
+ 1283  ansible-playbook -i in-ansible assign1-part3.yaml
+ 1284  vim /root/.ansible-retry/assign1-part3.retry
+ 1285  vim assign1-part3.yaml
+ 1286  vim /root/.ansible-retry/assign1-part3.retry
+ 1287  ansible-playbook -i in-ansible assign1-part3.yaml
+ 1288  vim assign1-part3.yaml
+ 1289  ansible-playbook -i in-ansible assign1-part3.yaml
+ 1290  vim in-ansible 
+ 1291  ansible-playbook -i in-ansible assign1-part3.yaml
+ 1292  vim in-ansible 
+ 1293  vim assign1-part3.yaml
+ 1294  vim assign1-part3.yaml
+ 1295  ansible-playbook -i in-ansible assign1-part3.yaml
+ 1296  vim assign1-part3.yaml
+ 1297  ansible-playbook -i in-ansible assign1-part3.yaml
+ 1298  vim assign1-part3.yaml
+ 1299  ansible-playbook -i in-ansible assign1-part3.yaml
+ 1300  vim assign1-part3.yaml
+ 1301  pwd
+ 1302  vim assign1-part3.yaml
+ 1303  ansible-playbook -i in-ansible assign1-part3.yaml
+ 1304  vim assign1-part3.yaml
+ 1305  ansible-playbook -i in-ansible assign1-part3.yaml
+ 1306  vim assign1-part3.yaml
+ 1307  ansible-playbook -i in-ansible assign1-part3.yaml
+ 1308  vim assign1-part3.yaml
+ 1309  ansible-playbook -i in-ansible assign1-part3.yaml
+ 1310  vim assign1-part3.yaml
+ 1311  ansible-playbook -i in-ansible assign1-part3.yaml
+ 1312  vim assign1-part3.yaml
+ 1313  vim assign2-part3.yaml
+ 1314  cp in-ansible assignment
+ 1315  vim assignment 
+ 1316  vim group_vars/dev
+ 1317  vim group_vars/centos 
+ 1318  vim group_vars/dev
+ 1319  vim group_vars/qa
+ 1320  vim assign2-part3.yaml
+ 1321  vim assign2-part3.yaml
+ 1322  vim assignment 
+ 1323  vim assign2-part3.yaml
+ 1324  ansible-playbook -i in-ansible assign1-part2.yaml
+ 1325  vim assign1-part3.yaml
+ 1326  vim assign2-part3.yaml
+ 1327  vim assign2-part3.yaml
+ 1328  ansible-playbook -i in-ansible assign1-part2.yaml
+ 1329  vim assign2-part3.yaml
+ 1330  ansible-playbook -i in-ansible assign1-part2.yaml
+ 1331  ansible-playbook -i in-ansible assign2-part3.yaml
+ 1332  vim assign2-part3.yaml
+ 1333  ansible-playbook -i in-ansible assign2-part3.yaml
+ 1334  vim assign2-part3.yaml
+ 1335  ansible-playbook -i in-ansible assign2-part3.yaml
+ 1336  vim assign2-part3.yaml
+ 1337  ansible-playbook -i in-ansible assign2-part3.yaml
+ 1338  vim assign2-part3.yaml
+ 1339  ansible-playbook -i in-ansible assign2-part3.yaml
+ 1340  ansible-playbook -i assignment assign2-part3.yaml
+ 1341  yum install appache2
+ 1342  vim assign2-part3.yaml
+ 1343  ansible-playbook -i assignment assign2-part3.yaml
+ 1344  vim assign2-part3.yaml
+ 1345  ansible-playbook -i assignment assign2-part3.yaml
+ 1346  vim assign2-part3.yaml
+ 1347  ansible-playbook -i assignment assign2-part3.yaml
+ 1348  vim assign2-part3.yaml
+ 1349  cp /etc/httpd/conf/httpd.conf .
+ 1350  cp httpd.conf httpd.conf.js
+ 1351  vim httpd.conf.js
+ 1352  vim assign2-part3.yaml 
+ 1353  vim group_vars/dev 
+ 1354  ansible-playbook -i assignment assign2-part3.yaml
+ 1355  vim assign2-part3.yaml 
+ 1356  ansible-playbook -i assignment assign2-part3.yaml
+ 1357  ll
+ 1358  cp httpd.conf.js httpd.conf.j2
+ 1359  ansible-playbook -i assignment assign2-part3.yaml
+ 1360  touch main.yaml
+ 1361  touch second.yaml
+ 1362  touch third.yaml
+ 1363  mv main.yaml assign3-part3.yaml
+ 1364  vim assign2-part3.yaml
+ 1365  vim assign3-part3.yaml
+ 1366  vim third.yaml
+ 1367  cp var_invt_group_host.yaml third.yaml
+ 1368  vim third.yaml
+ 1369  cp var_fact.yaml second.yaml
+ 1370  ansible-playbook -i assignment assign3-part3.yaml
+ 1371  vim assignment 
+ 1372  vim assignment 
+ 1373  vim second.yaml 
+ 1374  vim third.yaml 
+ 1375  ansible-playbook -i assignment assign3-part3.yaml
+ 1376  vim third.yaml 
+ 1377  vim assign3-part3.yaml
+ 1378  vim assign1-part3.yaml 
+ 1379  ansible-playbook -i assignment assign1-part3.yaml
+ 1380  vim test.yaml
+ 1381  vim assign1-part3.yaml 
+ 1382  ansible-playbook -i assignment assign1-part3.yaml
+ 1383  ansible-playbook -i assignment test.yaml
+ 1384  vim test.yaml
+ 1385  ansible-playbook -i assignment test.yaml
+ 1386  vim test.yaml
+ 1387  vim test.yaml
+ 1388  ansible-playbook -i assignment assign3-part3.yaml
+ 1389  vim second.yaml 
+ 1390  vim second.yaml 
+ 1391  vim second.yaml 
+ 1392  ansible-playbook -i assignment second.yaml 
+ 1393  vim assign3-part3.yaml 
+ 1394  ansible-playbook -i assignment assign3-part3.yaml
+ 1395  vim assign3-part3.yaml 
+ 1396  vim assign3-part3.yaml 
+ 1397  vim third.yaml 
+ 1398  vim third.yaml 
+ 1399  vim third.yaml 
+ 1400  ansible-playbook -i assignment third.yaml 
+ 1401  ansible-playbook -i assignment second.yaml 
+ 1402  ansible-playbook -i assignment assign3-part3.yaml 
+ 1403  vim second.yaml 
+ 1404  vim assign3-part3.yaml 
+ 1405  vim masterpb.yaml 
+ 1406  vim assign3-part3.yaml 
+ 1407  ansible-playbook -i assignment assign3-part3.yaml 
+ 1408  vim assign3-part3.yaml 
+ 1409  ansible-playbook -i assignment assign3-part3.yaml 
+ 1410  vim assign3-part3.yaml 
+ 1411  ansible-playbook -i assignment assign3-part3.yaml 
+ 1412  vim test.yaml 
+ 1413  vim assign1-part3.yaml 
+ 1414  vim assign1-part3.yaml 
+ 1415  ansible-playbook -i assignment assign1-part3.yaml 
+ 1416  vim assign1-part3.yaml 
+ 1417  cp   - name: list out directory
+ 1418      shell: "ls -d /etc/*/"
+ 1419      register: reg_output
+ 1420    - debug:
+ 1421        msg: This is a directory {{item}} in /etc
+ 1422      with_items:
+ 1423        - "{{ reg_output.stdout_lines }}"
+ 1424  cp assign1-part3.yaml assign1-2-part3.yaml
+ 1425  vim assign1-2-part3.yaml
+ 1426  ansible-playbook -i assignment assign1-2-part3.yaml 
+ 1427  vim assign1-2-part3.yaml
+ 1428  ls -ltr
+ 1429  vim assignment 
+ 1430  ll -ltr
+ 1431  vim httpd.conf.j2
+ 1432  vim assign1-2-part3.yaml
+ 1433  ansible-playbook -i assignment assign1-2-part3.yaml 
+ 1434  vim assign1-2-part3.yaml
+ 1435  ansible-playbook -i assignment assign1-2-part3.yaml 
+ 1436  cd ../prerana/ansible/
+ 1437  vim assign2-part3.yaml 
+ 1438  ansible-galaxy init
+ 1439  ansible-galaxy init web
+ 1440  ansible-galaxy init project
+ 1441  ll
+ 1442  cd project/
+ 1443  ll
+ 1444  vim tasks/main.yml 
+ 1445  vim vars/main.yml 
+ 1446  handlers/ma
+ 1447  vim handlers/main.yml 
+ 1448  vim tasks/main.yml 
+ 1449  touch files/agasthi.html.j2
+ 1450  touch files/index.html.j2
+ 1451  cp ../httpd.conf.j2 templates/
+ 1452  mv files/agasthi.html.j2 templates/
+ 1453  mv files/index.html.j2 templates/
+ 1454  vim tasks/main.yml 
+ 1455  vim tasks/main.yml 
+ 1456  vim tasks/main.yml 
+ 1457  vim files/agasthi.sh
+ 1458  vim handlers/main.yml 
+ 1459  vim files/append.sh.js
+ 1460  vim handlers/main.yml 
+ 1461  vim files/append.sh.js 
+ 1462  vim tasks/main.yml 
+ 1463  vim vars/var_index.yaml
+ 1464  vim tasks/main.yml
+ 1465  ll vars/var_index.yaml
+ 1466  vim tasks/main.yml
+ 1467  vim handlers/main.yml 
+ 1468  vim vars/main.yml 
+ 1469  vim templates/httpd.conf.j2 
+ 1470  vim vars/main.yml 
+ 1471  vim tasks/main.yml
+ 1472  vim handlers/main.yml 
+ 1473  vim tasks/main.yml 
+ 1474  vim tasks/main.yml 
+ 1475  vim templates/index.html.j2 
+ 1476  vim files/agasthi.sh 
+ 1477  vim tasks/main.yml 
+ 1478  vim files/agasthi.sh 
+ 1479  vim tasks/main.yml 
+ 1480  vim tasks/main.yml 
+ 1481  vim templates/index.html.j2 
+ 1482  vim templates/agasthi.html.j2 
+ 1483  cop templates/index.html.j2 templates/agasthi.html.j2
+ 1484  cp templates/index.html.j2 templates/agasthi.html.j2
+ 1485  pwd
+ 1486  cd ..
+ 1487  ll
+ 1488  mv project ../../agasthi/
+ 1489  cd ../../agasthi/
+ 1490  cd project/
+ 1491  ll
+ 1492  vim tasks/main.yml 
+ 1493  pwd
+ 1494  cat templates/index.html.j2 
+ 1495  vim tasks/main.yml 
+ 1496  grep "deploy" ../play*.yaml
+ 1497  vim ../play2.yaml 
+ 1498  vim tasks/main.yml 
+ 1499  vim ../play1.yaml 
+ 1500  vim tasks/main.yml 
+ 1501  vim ../play1.yaml 
+ 1502  cd ..
+ 1503  vim site.yaml
+ 1504  vim project/templates/index.html.j2 
+ 1505  ansible localhost -m facts 
+ 1506  vim project/tasks/main.yml 
+ 1507  vim project/templates/index.html.j2 
+ 1508  vim project/tasks/main.yml 
+ 1509  vim project/templates/index.html.j2 
+ 1510  cp assignment project
+ 1511  vim project/
+ 1512  mv project/assignment projectinventry
+ 1513  vim projectinventry
+ 1514  vim project/templates/index.html.j2 
+ 1515  ll
+ 1516  cd project
+ 1517  ll
+ 1518  cd ..
+ 1519  history >> hist.txt 

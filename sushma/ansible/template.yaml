@@ -1,0 +1,67 @@
+- name: Start the Play
+
+  hosts: weball
+
+  vars:
+
+    myname: rajutemp
+
+    dir: temp
+
+    port: 8080
+
+
+
+  tasks:
+
+  - name: install the latest version of Apache
+
+    yum:
+
+      name: httpd
+
+      state: present
+
+    when: ansible_os_family == "RedHat"
+
+
+
+  - name: Run a script with arguments (using 'cmd' parameter)
+
+    script:
+
+      cmd: deploy.sh
+
+
+
+  - name: Copy file with owner and permissions
+
+    copy:
+
+      src: index.html
+
+      dest: /var/www/html/
+
+
+
+  - name: Create a directory if it does not exist
+
+    file:
+
+      path: /var/www/html/{{ dir }}
+
+      state: directory
+
+      mode: '0755'
+
+
+
+  - name: Template a file to /etc/files.conf
+
+    template:
+
+      src: index.html.j2
+
+      dest: /var/www/html/{{ dir }}/index.html
+
+

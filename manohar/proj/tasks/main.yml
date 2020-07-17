@@ -1,0 +1,39 @@
+---
+# tasks file for proj
+- name: Project One
+  hosts: all
+  tasks:
+  - name: install httpd in centos
+    yum:
+      name: httpd
+      state: present
+    when: ansible_os_family == "RedHat"
+  - name: changing the port
+    template:
+      src: httpd.conf.j2
+      dest: /etc/httpd/conf/httpd.conf
+    notify: restart service
+  - name: start httpd
+    service:
+      name: httpd
+      state: started
+  - name: shell
+    shell: "ls -lrth"
+    register: shell
+  - local_action: lineinfile line={{shell }} path=/var/www/html/index.html
+  
+  - name : create group
+    group:
+     name: onmobile
+     state : present
+  - name: create a user
+    user:
+      name: deploy
+      group: onmobile
+
+  handlers:
+  - name: restart service
+    service:
+      name: httpd
+      state: restarted
+...

@@ -1,0 +1,27 @@
+- name: assign1-part3.yaml
+  hosts: weball
+  tasks:
+  - name: webservice for centos
+    yum: 
+     name: httpd
+     state: present
+    when: ansible_os_family == "RedHat"
+  - name: webservice for ubuntu
+    apt:
+     name: httpd
+     state: present
+    when: ansible_os_family == "Debian"
+  - name: listing the dir in /etc
+#    find:
+#     paths: /etc
+#     recurse: no
+#     file_type: directory
+    shell: ls /etc/
+    register: list_etc
+  - name: display the lists
+    debug:
+     msg: This file {{ item }} in /etc.
+    with_items: 
+     - "{{ list_etc.stdout_lines }}"
+#     - gopi
+#     - gopinath

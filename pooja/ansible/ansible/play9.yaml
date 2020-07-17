@@ -1,0 +1,7 @@
+- import_playbook: play1.yaml
+- import_playbook: play2.yaml
+- import_playbook: play3.yaml
+- import_playbook: play4.yaml
+- import_playbook: play5.yaml
+- import_playbook: play7.yaml
+- import_playbook: play8.yaml

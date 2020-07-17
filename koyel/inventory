@@ -1,16 +1,11 @@
-[web1]
-13.233.179.105 ansible_user=centos ansible_ssh_private_key_file=remote.pem ansible_become=yes 
-
-[web2]
-3.4.5.6
-
-[weball:children]
-web1
-web2
+[weball:vars]
+ansible_user=centos
+ansible_ssh_private_key_file=remote.pem
+ansible_become=yes
+myname=rajeshininvent
+age=19
 
 
-[db]
-3.4.5.5
-3.3.3.3
-5.6.67.6
-5.4.4.3
+[weball]
+13.127.82.113
+13.235.9.49 ansible_user=ubuntu

@@ -1,0 +1,13 @@
+- name: Start the Play
+  hosts: web
+  vars_prompt:
+    - name: "Version"
+      prompt: "Which version Do you want to install?"
+
+  tasks:
+  - debug:
+      msg: System {{ myname }} has age {{ age }}
+  - debug:
+      msg: System {{ Version }} 
+  - debug:
+      msg: System {{ myname }} has age {{ age }}

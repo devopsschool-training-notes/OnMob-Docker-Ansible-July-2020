@@ -1,0 +1,50 @@
+- name: install the latest version of httpd
+  yum:
+    name: httpd
+    state: present
+  when: ansible_os_family == "RedHat"
+
+- name: Listing out directory from /etc
+  shell: echo "Shell scirpt output"
+  register: result
+
+- name: copy register output to var
+  debug:
+    var: result
+
+- name: fetching fact variable 
+  setup: filter=ansible_facts
+  register: factresult
+
+- name: copy register output to var
+  debug:
+    var: factresult
+
+- name: Template a file to /etc/files.conf
+  template:
+    src: index.html.j2
+    dest: /var/www/html/index.html
+
+- name: Template a file to /etc/files.conf
+  template:
+    src: httpd.conf.j2
+    dest: /etc/httpd/conf/httpd.conf
+  notify: restart service
+
+- name: Install common software requirements
+  apt: pkg={{ item }} state=present
+  with_items:
+    - git
+    - ntp
+    - vim
+
+- name: Creating group name onmobile
+  group:
+    name: onmobile
+
+- name: creating deploy
+  user:
+    name: deploy
+    group: onmobile
+    shell: /bin/bash
+

@@ -1,0 +1,7 @@
+- name: Play for adding user deploy-user in group deploy          
+  hosts: web
+  tasks:
+  - name: add deploy-user in deploy
+    user:
+      name: deploy-user
+      group: deploy

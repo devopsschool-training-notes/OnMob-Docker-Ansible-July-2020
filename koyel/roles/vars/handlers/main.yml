@@ -1,0 +1,6 @@
+---
+# handlers file for role/vars/
+- name: restart service
+  service:
+    name: httpd
+    state: restarted

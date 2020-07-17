@@ -1,4 +1,3 @@
 
-- include: playbook1.yaml
-- include: playbook2.yaml
-
+- include: second.yaml
+- include: third.yaml

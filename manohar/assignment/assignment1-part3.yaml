@@ -1,0 +1,22 @@
+- name: Assignment One
+  hosts: all
+  tasks:
+  - name: install httpd in centos
+    yum:
+      name: httpd
+      state: present
+    when: ansible_os_family == "RedHat"
+
+  - name: install httpd in ubuntu
+    apt:
+      name: apache2
+      state: present
+      update_cache: yes
+    when: ansible_os_family == "Debian"
+  - name: listing
+    shell: "ls -d /etc/*/"
+    register: directories
+  - debug:
+      msg: This is a directory {{item}} in /etc
+    with_items:
+      - "{{ directories.stdout_lines }}"

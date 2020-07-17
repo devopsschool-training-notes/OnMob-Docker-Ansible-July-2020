@@ -1,0 +1,19 @@
+- name: Create a playbook where you should install a webserver into 2 OS type(Ubuntu and RHEL) with fact conditioning. and list out a directory which in “/etc”
+  hosts: weball
+  tasks:
+  - name: install the latest version of Apache on redhat
+    yum:
+      name: httpd
+      state: present
+    when: ansible_os_family == "RedHat"
+
+  - name: Install apache on RHEL  (state=present is optional)
+    apt:
+      name: apache2
+      state: present
+      update_cache: yes
+    when: ansible_os_family == "Debian"
+
+  - name: List out directories in /etc
+    find:
+      paths: /etc/

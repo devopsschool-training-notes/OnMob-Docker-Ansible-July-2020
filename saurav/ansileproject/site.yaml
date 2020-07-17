@@ -1,0 +1,6 @@
+- name: Start the Play
+  hosts: weball
+  roles:
+    - myrole
+    - geerlingguy.java
+

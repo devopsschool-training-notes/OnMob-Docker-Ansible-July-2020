@@ -1,0 +1,11 @@
+---
+- name: Write a playbook to test inventry
+  hosts: ExcercisePart3
+#  vars:
+#    msg: 'This is from playbook'
+  tasks:
+  - debug:
+      msg: System {{ msg }}
+
+...
+

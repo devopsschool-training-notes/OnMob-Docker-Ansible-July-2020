@@ -1,0 +1,6 @@
+- name: Start the Play
+  hosts: web
+  roles:
+    - project1
+    - geerlingguy.java
+

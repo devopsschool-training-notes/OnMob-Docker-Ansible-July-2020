@@ -1,0 +1,26 @@
+- name: assign1part3
+  hosts: web
+
+  tasks:
+  - name: install the latest version of Apache in centos
+    yum:
+      name: httpd
+      state: present
+    when: ansible_os_family == "RedHat"
+
+  - name: install the latest version of Apache in ubuntu
+    apt:
+      name: apache2
+      state: present   
+      update_cache: yes
+    when: ansible_os_family == "Debian"
+
+  - name: find etc dir
+    find:
+      paths: /etc
+      file_type: directory
+    register: etcdir
+   
+  - name: print the dir
+    debug:
+      msg: This is a directory /file in /etc is "{{ etcdir }}"

@@ -1,0 +1,33 @@
+- name: assignment2 start
+  hosts: devqa
+
+  tasks:
+  - name: install web server Apache
+    yum:
+      name: httpd
+      state: present
+    when: (ansible_os_family == "RedHat")
+
+  - name: Create a directory if it does not exist
+    file:
+      path: /etc/httpd.conf/conf
+      state: directory
+      mode: '0755'
+
+  - name: Template a file to /etc/httpd.conf/conf/httpd.conf with port
+    template:
+      src: httpd.conf.j2
+      dest: /etc/httpd.conf/conf/httpd.conf
+    notify: restart service
+      
+  - name: Start service httpd, if not started
+    service:
+      name: httpd
+      state: started
+
+  handlers:
+  - name: restart service
+    service:
+      name: httpd
+      state: restarted
+

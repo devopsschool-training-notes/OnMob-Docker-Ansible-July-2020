@@ -1,0 +1,5 @@
+---
+# vars file for role/vars/
+    myname: testuser
+    port: 8080
+

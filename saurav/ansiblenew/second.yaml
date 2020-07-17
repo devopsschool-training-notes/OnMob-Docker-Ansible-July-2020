@@ -1,0 +1,6 @@
+
+- name: Start the Play
+  hosts: weball
+  tasks:
+  - debug:
+      msg: System {{ myname }} has age {{ age }}

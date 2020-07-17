@@ -1,0 +1,24 @@
+- name: Start the Play
+  hosts: weball
+  tasks:
+  - name: install the latest version of Apache
+    yum:
+      name: httpd
+      state: present
+    when: ansible_os_family == "RedHat"
+
+  - name: Install apache httpd  (state=present is optional)
+    apt:
+      name: apache2
+      state: present
+      update_cache: yes
+    when: ansible_os_family == "Debian"
+
+  - name: Recursively find /etc files
+    find:
+      paths: /etc
+      recurse: no
+    register: result
+
+  - debug:
+      var: result

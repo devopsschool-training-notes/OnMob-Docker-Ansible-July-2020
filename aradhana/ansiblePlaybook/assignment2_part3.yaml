@@ -1,0 +1,28 @@
+---
+- name: install the latest version of Apache
+  hosts: weball
+  tasks:
+  - name: all the latest version of Apache
+    yum:
+      name: httpd
+      state: present
+#      installroot: /opt/
+    when: ansible_os_family == "RedHat"
+
+
+  - name: Template a file to chagne a port
+    template:
+      src: httpd.conf.j2
+      dest: /etc/httpd/conf/httpd.conf
+
+  - name: Start service httpd, if not started
+    service:
+      name: httpd
+      state: started
+
+  handlers:
+  - name: restart service
+    service:
+      name: httpd
+      state: restarted
+...

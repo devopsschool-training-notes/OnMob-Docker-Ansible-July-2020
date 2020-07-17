@@ -1,0 +1,6 @@
+---
+# vars file for myrole
+
+
+port: 8080
+myname: saurav

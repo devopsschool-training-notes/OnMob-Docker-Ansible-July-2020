@@ -1,0 +1,24 @@
+- name: install httpd
+  hosts: all
+  tasks:
+  - name: all the latest version of Apache
+    yum:
+      name: httpd
+      state: present
+
+  - name: changing the port
+    template:
+      src: httpd.conf.j2
+      dest: /etc/httpd/conf/httpd.conf
+#      when : host == "qa"
+      when: myname == "manohar_ubuntu"
+  - name: start httpd
+    service:
+      name: httpd
+      state: started
+
+  handlers:
+  - name: restart service
+    service:
+      name: httpd
+      state: restarted

@@ -1,0 +1,37 @@
+
+---
+# tasks file for project
+- name: Install httpd
+  yum:
+    name: httpd
+    state: present
+  when: ansible_os_family == "RedHat"
+
+- name: Template a file to /etc/files.conf
+  template:
+    src: index.html.j2
+    dest: /var/www/html/index.html
+
+- name: Template a file to /etc/files.conf
+  template:
+    src: httpd.conf.j2
+    dest: /etc/httpd/conf/httpd.conf
+  notify: httpd restart
+- name: Run a script in remote system
+  script:
+  cmd: deploy.sh
+ 
+- name: Create a group
+  group:
+    name: onmobile
+- name: Create a user
+  user:
+    name: deploy
+    group: onmobile
+- name: Install common software requirements
+  yum: name={{ item }} state=present
+  with_items:
+     - git
+     - ntp
+     - vim
+  when: ansible_os_family == "RedHat"

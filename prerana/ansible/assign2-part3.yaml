@@ -1,0 +1,45 @@
+- name: start assign2
+  hosts: web
+  vars:
+    myname: rajutemp
+    dir: temp
+    
+
+  tasks:
+  - name: install the latest version of Apache
+    yum:
+      name: httpd
+      state: present
+    when: ansible_os_family == "RedHat"
+
+
+  - name: Copy file with owner and permissions
+    copy:
+      src: index.html
+      dest: /var/www/html/
+
+  - name: Create a directory if it does not exist
+    file:
+      path: /var/www/html/{{ dir }}
+      state: directory
+      mode: '0755'
+
+
+  - name: Template a file to /etc/files.conf
+    template:
+      src: httpd.conf.j2
+      dest: /etc/httpd/conf/httpd.conf
+    notify: restart service
+      
+  - name: Start service httpd, if not started
+    service:
+      name: httpd
+      state: started
+
+  handlers:
+  - name: restart service
+    service:
+      name: httpd
+      state: restarted
+
+
