@@ -1,0 +1,270 @@
+===============================
+- Multiple Playbook
+- Playbook Vars
+- Inventory Vars
+- Fact Vars
+- Conditioning
+- Iteration
+---------------------
+- Template
+- Handlers
+- script
+===============================
+Roles - THE END
+===============================
+Ansible with Container.
+===============================
+Ansible Tower - Video Only
+
+
+ACS
+----------
+13.126.25.79
+
+ARS
+--------------
+13.127.82.113
+13.127.163.216
+13.233.137.85
+13.233.104.206
+13.232.227.88
+13.235.9.49 [ UBUNTU]
+===========================================
+- Multiple Playbook
+or
+- Multiple Play
+or
+- Multiple Tasks
+=========================================
+------------playbook1.yaml--------------------
+
+- name: Start the Play
+  hosts: weball
+  tasks:
+  - name: install the latest version of Apache
+    yum:
+      name: httpd
+      state: present
+
+------------playbook2.yaml--------------------
+
+- name: Start the Play
+  hosts: weball
+  tasks:
+  - name: install the latest version of Apache
+    yum: name=httpd state=present
+
+  - name: Copy file with owner and permissions
+    copy:
+      src: index.html
+      dest: /var/www/html/
+
+  - name: Start service httpd, if not started
+    service:
+      name: httpd
+      state: started
+
+
+masterplaybook.yaml
+----------------------
+- include: playbook1.yaml
+- include: playbook2.yaml
+
+
+------------playbook3.yaml--------------------
+
+- name: Start the Play
+  hosts: weball
+  tasks:
+  - name: install the latest version of Apache
+    yum:
+      name: httpd
+      state: present
+  - include: tasks.yaml 
+
+------------tasks.yaml--------------------
+
+  - name: install the latest version of Apache
+    yum: name=httpd state=present
+
+  - name: Copy file with owner and permissions
+    copy:
+      src: index.html
+      dest: /var/www/html/
+
+  - name: Start service httpd, if not started
+    service:
+      name: httpd
+      state: started
+===================================================================
+===================================================================
+- Playbook Vars
+- Inventory Vars
+- Fact Vars
+
+
+https://docs.ansible.com/ansible/latest/user_guide/playbooks_variables.html
+https://www.devopsschool.com/tutorial/ansible/variables/
+
+
+- name: Start the Play
+  hosts: weball
+  vars:
+    myname: rajeshinplay
+    age: 16
+  vars_files:
+    - ext-var.yaml
+  vars_prompt:
+    - name: "Version"
+      prompt: "Which version Do you want to install?"
+
+  tasks:
+  - debug:
+      msg: System {{ myname }} has uuid {{ age }}
+  - debug:
+      msg: System {{ Version }} 
+
+
+- name: Start the Play
+  hosts: weball
+  vars:
+    myname: rajeshinplay
+    age: 16
+  vars_files:
+    - ext-var.yaml
+  vars_prompt:
+    - name: "Version"
+      prompt: "Which version Do you want to install?"
+
+  tasks:
+  - debug:
+      msg: System {{ myname }} has age {{ age }}
+  - debug:
+      msg: System {{ Version }} 
+  - include_vars: ext-var-tasks.yaml
+  - debug:
+      msg: System {{ myname }} has age {{ age }}
+
+==============================================
+- Inventory Vars
+=============================================================================================
+[weball:vars]
+ansible_user=centos
+ansible_ssh_private_key_file=remote.pem
+ansible_become=yes
+myname=rajeshininvent
+age=19
+
+
+
+
+
+[weball]
+13.127.82.113
+13.127.163.216 myname=rajeshininvent
+
+===============================================
+- Fact Vars
+		fact of system. ars
+
+https://www.devopsschool.com/tutorial/ansible/ansible-conditional-programming-playbooks.html
+https://www.devopsschool.com/tutorial/ansible/ansible-looping-programming-playbooks.html
+
+- name: Start the Play
+  hosts: weball
+  tasks:
+  - name: install the latest version of Apache
+    yum:
+      name: httpd
+      state: present
+    when: ansible_os_family == "RedHat"
+
+  - name: Install apache httpd  (state=present is optional)
+    apt:
+      name: apache2
+      state: present   
+      update_cache: yes
+    when: ansible_os_family == "Debian"
+
+  - name: Install common software requirements
+    apt: pkg={{ item }} state=present
+    with_items:
+       - git
+       - htop
+       - vim
+    when: ansible_os_family == "Debian"
+==================================================================
+==================================================================
+- script
+- Template
+- Handlers
+
+- name: Start the Play
+  hosts: weball
+  vars:
+    myname: rajutemp
+    dir: temp
+    port: 81
+
+  tasks:
+  - name: install the latest version of Apache
+    yum:
+      name: httpd
+      state: present
+    when: ansible_os_family == "RedHat"
+
+  - name: Run a script with arguments (using 'cmd' parameter)
+    script:
+      cmd: deploy.sh
+
+  - name: Copy file with owner and permissions
+    copy:
+      src: index.html
+      dest: /var/www/html/
+
+  - name: Create a directory if it does not exist
+    file:
+      path: /var/www/html/{{ dir }}
+      state: directory
+      mode: '0755'
+
+  - name: Template a file to /etc/files.conf
+    template:
+      src: index.html.j2
+      dest: /var/www/html/{{ dir }}/index.html
+
+  - name: Template a file to /etc/files.conf
+    template:
+      src: httpd.conf.j2
+      dest: /etc/httpd/conf/httpd.conf
+    notify: restart service
+      
+  - name: Start service httpd, if not started
+    service:
+      name: httpd
+      state: started
+
+  handlers:
+  - name: restart service
+    service:
+      name: httpd
+      state: restarted
+
+
+- Template
+========================================
+if you want to interpolate vars in files. you need to do following.
+1. file exten must be postfixed with .j2
+2. use a ansible module template
+
+Handlers
+======================
+its a task but DO NOT execute
+	until
+	 - call for it &&
+	 - calling tasks is having changed == true
+
+
+Assignment - https://www.devopsschool.com/blog/ansible-playbook-lab-excercise-part-3/
+
+
