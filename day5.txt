@@ -1,0 +1,205 @@
+===============================
+- Multiple Playbook
+- Playbook Vars
+- Inventory Vars
+- Fact Vars
+- Conditioning
+- Iteration
+---------------------
+- Template
+- Handlers
+===============================
+Roles - THE END
+===============================
+Ansible with Container.
+===============================
+Ansible Tower - Video Only
+
+
+ACS
+----------
+13.126.25.79
+
+ARS
+--------------
+13.127.82.113
+13.127.163.216
+13.233.137.85
+13.233.104.206
+13.232.227.88
+===========================================
+- Multiple Playbook
+or
+- Multiple Play
+or
+- Multiple Tasks
+=========================================
+------------playbook1.yaml--------------------
+
+- name: Start the Play
+  hosts: weball
+  tasks:
+  - name: install the latest version of Apache
+    yum:
+      name: httpd
+      state: present
+
+------------playbook2.yaml--------------------
+
+- name: Start the Play
+  hosts: weball
+  tasks:
+  - name: install the latest version of Apache
+    yum: name=httpd state=present
+
+  - name: Copy file with owner and permissions
+    copy:
+      src: index.html
+      dest: /var/www/html/
+
+  - name: Start service httpd, if not started
+    service:
+      name: httpd
+      state: started
+
+
+masterplaybook.yaml
+----------------------
+- include: playbook1.yaml
+- include: playbook2.yaml
+
+
+------------playbook3.yaml--------------------
+
+- name: Start the Play
+  hosts: weball
+  tasks:
+  - name: install the latest version of Apache
+    yum:
+      name: httpd
+      state: present
+  - include: tasks.yaml 
+
+------------tasks.yaml--------------------
+
+  - name: install the latest version of Apache
+    yum: name=httpd state=present
+
+  - name: Copy file with owner and permissions
+    copy:
+      src: index.html
+      dest: /var/www/html/
+
+  - name: Start service httpd, if not started
+    service:
+      name: httpd
+      state: started
+===================================================================
+===================================================================
+- Playbook Vars
+- Inventory Vars
+- Fact Vars
+
+
+https://docs.ansible.com/ansible/latest/user_guide/playbooks_variables.html
+https://www.devopsschool.com/tutorial/ansible/variables/
+
+
+- name: Start the Play
+  hosts: weball
+  vars:
+    myname: rajeshinplay
+    age: 16
+  vars_files:
+    - ext-var.yaml
+  vars_prompt:
+    - name: "Version"
+      prompt: "Which version Do you want to install?"
+
+  tasks:
+  - debug:
+      msg: System {{ myname }} has uuid {{ age }}
+  - debug:
+      msg: System {{ Version }} 
+
+
+- name: Start the Play
+  hosts: weball
+  vars:
+    myname: rajeshinplay
+    age: 16
+  vars_files:
+    - ext-var.yaml
+  vars_prompt:
+    - name: "Version"
+      prompt: "Which version Do you want to install?"
+
+  tasks:
+  - debug:
+      msg: System {{ myname }} has age {{ age }}
+  - debug:
+      msg: System {{ Version }} 
+  - include_vars: ext-var-tasks.yaml
+  - debug:
+      msg: System {{ myname }} has age {{ age }}
+
+==============================================
+- Inventory Vars
+=============================================================================================
+[weball:vars]
+ansible_user=centos
+ansible_ssh_private_key_file=remote.pem
+ansible_become=yes
+myname=rajeshininvent
+age=19
+
+
+
+
+
+[weball]
+13.127.82.113
+13.127.163.216 myname=rajeshininvent
+
+===============================================
+- Fact Vars
+		fact of system. ars
+
+https://www.devopsschool.com/tutorial/ansible/ansible-conditional-programming-playbooks.html
+https://www.devopsschool.com/tutorial/ansible/ansible-looping-programming-playbooks.html
+
+- name: Start the Play
+  hosts: weball
+  tasks:
+  - name: install the latest version of Apache
+    yum:
+      name: httpd
+      state: present
+    when: ansible_os_family == "RedHat"
+
+  - name: Install apache httpd  (state=present is optional)
+    apt:
+      name: apache2
+      state: present   
+      update_cache: yes
+    when: ansible_os_family == "Debian"
+
+  - name: Install common software requirements
+    apt: pkg={{ item }} state=present
+    with_items:
+       - git
+       - htop
+       - vim
+    when: ansible_os_family == "Debian"
+
+
+
+
+
+
+
+
+
+
+
+
